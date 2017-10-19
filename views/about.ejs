@@ -4,30 +4,61 @@
 <head>
   <title>csc 648 css using Bootstrap</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
 </head>
 <body>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+      <a class="navbar-brand" href="/">Unlock</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-  <h1>About us</h1>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/about">About us</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0" action="/search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="word" acti>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <main role="main">
+      <div>
+        <h1></br></h1>
+        <h1>About us</h1>
+      </div>
+      <div>
+        <div>Team lead:</div>
+        <a href="/about/Sannuj"><button type="button" class="btn btn-info">Sannuj Singhal</button></a>
+        <div>Front end lead:</div>
+        <a href="/about/Joseph"><button type="button" class="btn btn-info">Joseph Wibowo</button></a>
+        <div>Back end lead:</div>
+        <a href="/about/Paul"><button type="button" class="btn btn-info">Paul Fontaine</button></a>
+        <div>Team front end</div>
+        <a href="/about/Danny"><button type="button" class="btn btn-info">Danny Herrera</button></a>
+        <div>Team back end</div>
+        <a href="/about/Chetan"><button type="button" class="btn btn-info">Johal Gurchetan</button></a>
+        <div>Team back end 2</div>
+        <a href="/about/Steven"><button type="button" class="btn btn-info">Steven Huynh</button></a>
+      </div>
+    </main>
+    </div>
 
-  <div>Team lead:</div>
-  <a href="aboutSannuj"><button type="button" class="btn btn-info">Sannuj Singhal</button></a>
-  <div>Front end lead:</div>
-  <a href="aboutJoseph"><button type="button" class="btn btn-info">Joseph Wibowo</button></a>
-  <div>Back end lead:</div>
-  <a href="aboutPaul"><button type="button" class="btn btn-info">Paul Fontaine</button></a>
-  <div>Team front end</div>
-  <a href="aboutDanny"><button type="button" class="btn btn-info">Danny Herrera</button></a>
-  <div>Team back end</div>
-  <a href="aboutChetan"><button type="button" class="btn btn-info">Johal Gurchetan</button></a>
-  <div>Team back end 2</div>
-  <a href="aboutSteven"><button type="button" class="btn btn-info">Steven Huynh</button></a>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
 </body>
 </html>
