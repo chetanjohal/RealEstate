@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 /* GET about page. */
-router.get('/', function(req, res, next) {
-    res.render('about');
-});
+// router.get('/', function(req, res, next) {
+//     res.render('about');
+// });
 /* GET about pages. */
 router.get('/Joseph', function(req, res, next) {
 	res.render('abouts/aboutJoseph');
