@@ -26,10 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/fa17g01', index);
 app.use('/', index);
-
-app.use('/fa17g01/about', index);
-app.use('/about', about);
-
+//app.use('/about', about);
 app.use('/search', search);
 
 // catch 404 and forward to error handler
