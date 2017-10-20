@@ -25,8 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use('/fa17g01', index);
-app.use('/about', about);
-app.use('/search', search);
+app.use('/fa17g01/about', about);
+app.use('/fa17g01/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
