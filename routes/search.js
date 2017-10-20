@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('', function(req, res, next) {
+router.get('/', function(req, res, next) {
     var word = req.query.word;
     //console.log(word);
     //res.send(word);
