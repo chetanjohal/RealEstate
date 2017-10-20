@@ -8,8 +8,8 @@ router.get('', function(req, res, next) {
   var mysql = require('mysql');
   var connection = mysql.createConnection({
     host     : "localhost",
-    user     : "root",
-    password : "root",
+    user     : "fa17g01",
+    password : "csc648fa17g01",
     database : "fa17g01"
   });
 
