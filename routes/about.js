@@ -25,5 +25,4 @@ router.get('/Danny', function(req, res, next) {
 	res.render('abouts/aboutDanny');
 });
 
-
 module.exports = router;
