@@ -36,12 +36,22 @@
     <main role="main">
       <div>
         <h1></br></h1>
-        <h1>Results for <%= word %>:</h1>
+        <h1>Found <%= result.length %> results for <%= word %>:</h1>
       </div>
-      <div class="jumbotron">
-        <h1>House 1</h1>
-        <p class="lead">This is an example </p>
-      </div>
+      <% for(var i = 0; i<result.length; i++){ %>
+        <div class="jumbotron">
+          <h1>House <%= i+1 %></h1>
+          <ul class="list-group">
+            <li class="list-group-item">City: <%= result[i].city %></li>
+            <li class="list-group-item">Street: <%= result[i].street %></li>
+            <li class="list-group-item">Price: <%= result[i].price %></li>
+            <li class="list-group-item">Description: <%= result[i].description %></li>
+            <li class="list-group-item">Bedrooms: <%= result[i].bedrooms %></li>
+            <li class="list-group-item">Year: <%= result[i].yr %></li>
+          </ul>
+        </div>
+        <% } %>
+
       </main>
     </div>
 
