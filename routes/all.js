@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/fa17g01', function(req, res, next) {
-  res.render('index');
+  res.redirect('/fa17g01/');
 });
 
 /* GET about page. */
