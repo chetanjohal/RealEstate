@@ -24,7 +24,7 @@
             <a class="nav-link" href="/fa17g01/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about/">About us</a>
+            <a class="nav-link" href="/fa17g01/about/">About us</a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0" action="search">
@@ -38,25 +38,40 @@
         <h1></br></h1>
         <h1>Found <%= result.length %> results for <%= word %>:</h1>
       </div>
-      <% for(var i = 0; i<result.length; i++){ %>
+      <% if(result.length != 0){
+          for(var i = 0; i<result.length; i++){ %>
         <div class="jumbotron">
           <h1>House <%= i+1 %></h1>
-          <ul class="list-group">
-            <li class="list-group-item">City: <%= result[i].city %></li>
-            <li class="list-group-item">Street: <%= result[i].street %></li>
-            <li class="list-group-item">Price: <%= result[i].price %></li>
-            <li class="list-group-item">Description: <%= result[i].description %></li>
-            <li class="list-group-item">Bedrooms: <%= result[i].bedrooms %></li>
-            <li class="list-group-item">Year: <%= result[i].yr %></li>
-          </ul>
-        </div>
-        <% } %>
+          <div class="row">
+            <div class="col-sm-6">
+              <ul class="list-group">
+                <li class="list-group-item">Street: <%= result[i].street %></li>
+                <li class="list-group-item">ZIP: <%= result[i].zip %></li>
+                <li class="list-group-item">City: <%= result[i].city %></li>
+                <li class="list-group-item">Price: $<%= result[i].price %></li>
+                <li class="list-group-item">Description: <%= result[i].description %></li>
+                <li class="list-group-item">Bedrooms: <%= result[i].bedrooms %></li>
+                <li class="list-group-item">Baths: <%= result[i].baths %></li>
+                <li class="list-group-item">Backyard: <%= result[i].backyard %></li>
+                <li class="list-group-item">Pool: <%= result[i].pool %></li>
+                <li class="list-group-item">AC: <%= result[i].ac %></li>
+                <li class="list-group-item">Publish Date: <%= result[i].publish_date %></li>
+                <li class="list-group-item">Year: <%= result[i].yr %></li>
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <% var source = "data:image/png;base64," + result[i].img; %>
+              <div class="center-block">
+                <img  src="<%= source %>" class="img-thumbnail center-block img-responsive" />
+              </div>
+            </div>
+          </div>
+          <% }} %>
+        </main>
+      </div>
 
-      </main>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  </body>
-  </html>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </body>
+    </html>

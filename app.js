@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use('/', all);
-//app.use('/fa17g01', all);
+app.use('/fa17g01', all);
 // app.use('/about', about);
 // app.use('/search', search);
 

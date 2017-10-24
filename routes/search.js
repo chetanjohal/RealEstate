@@ -15,10 +15,14 @@ router.get('', function(req, res, next) {
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "SELECT * FROM houses WHERE city = '" + word + "'";
+    var that = ("%" + word + "%");
+    var sql = "SELECT house_id, city FROM `fa17g01`.`houses` WHERE `city` LIKE '%oak%';"
+    //var sql = "SELECT * FROM houses";
+
     connection.query(sql, function (err, result, fields)
     {
       for (var i = 0; i<result.length; i++){
+          console.log(sql);
           console.log("Result: " + result[i].street);
       }
       res.render('results.ejs', {word: word, result: result});
