@@ -52,42 +52,45 @@
             <div class="row">
               <div class="col-sm-6">
                 <ul class="list-group">
-                  <li class="list-group-item">Street: <%= result[i].street %></li>
-                  <li class="list-group-item">ZIP: <%= result[i].zip %></li>
-                  <li class="list-group-item">City: <%= result[i].city %></li>
-                  <li class="list-group-item">Price: $<%= result[i].price %></li>
-                  <li class="list-group-item">Description: <%= result[i].description %></li>
-                  <li class="list-group-item">Bedrooms: <%= result[i].bedrooms %></li>
-                  <li class="list-group-item">Baths: <%= result[i].baths %></li>
-                  <li class="list-group-item">Backyard: <%= result[i].backyard %></li>
-                  <li class="list-group-item">Pool: <%= result[i].pool %></li>
-                  <li class="list-group-item">AC: <%= result[i].ac %></li>
-                  <li class="list-group-item">Publish Date: <%= result[i].publish_date %></li>
-                  <li class="list-group-item">Year: <%= result[i].yr %></li>
+                  <li class="list-group-item"><strong>Street:</strong> <%= result[i].street %></li>
+                  <li class="list-group-item"><strong>ZIP:</strong> <%= result[i].zip %></li>
+                  <li class="list-group-item"><strong>City:</strong> <%= result[i].city %></li>
+                  <li class="list-group-item"><strong>Price:</strong> $<%= result[i].price %></li>
+                  <li class="list-group-item"><strong>Description:</strong> <%= result[i].description %></li>
+                  <li class="list-group-item"><strong>Bedrooms:</strong> <%= result[i].bedrooms %></li>
+                  <li class="list-group-item"><strong>Baths:</strong> <%= result[i].baths %></li>
+                  <li class="list-group-item"><strong>Backyard:</strong> <%= result[i].backyard %></li>
+                  <li class="list-group-item"><strong>Pool:</strong> <%= result[i].pool %></li>
+                  <li class="list-group-item"><strong>AC:</strong> <%= result[i].ac %></li>
+                  <li class="list-group-item"><strong>Publish Date:</strong> <%= result[i].publish_date %></li>
+                  <li class="list-group-item"><strong>Year:</strong> <%= result[i].yr %></li>
                 </ul>
-              </div>
-              <div class="col-sm-6">
-                <% var source = "data:image/png;base64," + result[i].img; %>
-                <div class="center-block">
-                  <img  src="<%= source %>" class="img-thumbnail center-block img-responsive" />
                 </div>
-                <div id="map<%=i%>" class="map">
-                  <iframe
+                <div class="col-sm-6">
+                  <% var source = "data:image/png;base64," + result[i].img; %>
+                  <div class="center-block">
+                    <img  src="<%= source %>" class="img-thumbnail center-block img-responsive" />
+                  </div>
+                  <div id="map<%=i%>" class="map">
+                    <iframe
                     width="450"
                     height="250"
                     frameborder="0" style="border:0"
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%=result[i].city%>,<%=result[i].street%>" allowfullscreen>
                   </iframe>
-                  </div>
+                </div>
               </div>
               <!-- end right colum -->
             </div>
+            <!-- end row -->
           </div>
-            <% }} %>
-          </main>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-      </body>
-      </html>
+          <!-- end jumbotron -->
+          <% }} %>
+
+        </main>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </body>
+    </html>
