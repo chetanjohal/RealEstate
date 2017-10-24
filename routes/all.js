@@ -50,7 +50,8 @@ router.get('/search', function(req, res, next) {
     if (err) throw err;
     console.log("Connected!");
 
-    var sql = "SELECT * FROM houses WHERE city = '" + word + "'";
+    var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%'";
+    console.log("SQL: " + sql);
     connection.query(sql, function (err, result, fields)
     {
       for (var i = 0; i<result.length; i++){
