@@ -51,14 +51,9 @@ router.get('/search', function(req, res, next) {
     console.log("Connected!");
 
     var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%'";
-    console.log("SQL: " + sql);
     connection.query(sql, function (err, result, fields)
     {
-      for (var i = 0; i<result.length; i++){
-          console.log("Result: " + result[i].street);
-      }
       res.render('results.ejs', {word: word, result: result});
-      //res.send(result);
     });
   });
 });
