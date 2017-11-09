@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
-
+// var express = require('express');
+// var router = express.Router();
+//
+// var about = require('./about');
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   var mysql = require('mysql');
@@ -19,17 +20,17 @@ var router = express.Router();
 //     });
 //   });
 // });
-//
+// //
 // router.get('/fa17g01', function(req, res, next) {
 //   res.redirect('/fa17g01/');
 // });
-
+//
 // /* GET about page. */
 // router.get('/fa17g01/about/', function(req, res, next) {
 //     res.render('about');
 // });
 
-/* GET about pages. */
+// /* GET about pages. */
 // router.get('/about/Joseph', function(req, res, next) {
 // 	res.render('abouts/aboutJoseph');
 // });
