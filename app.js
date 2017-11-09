@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
-//app.use('/', all);
+app.use('/', index);
 app.use('/fa17g01', index);
 app.use('/fa17g01/about', about);
 app.use('/fa17g01/search', search);
