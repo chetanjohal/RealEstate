@@ -9,11 +9,10 @@ var googleMapsClient = require('@google/maps').createClient({
   key: 'AIzaSyCto1IFJc8gsMu7flv-yShgXH8V-HTyhpU'
 });
 
-var all = require('./routes/all');
-var index = require('./routes/index');
-var about = require('./routes/about');
-var search = require('./routes/search');
 var middleware = require('./routes/middleware');
+var about = require('./routes/about');
+var index = require('./routes/index');
+var search = require('./routes/search');
 
 var app = express();
 
@@ -31,14 +30,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
-// app.use('/', index);
-// app.use('/fa17g01', middleware);
-// app.use('/fa17g01/about', about);
-// app.use('/fa17g01/search', search);
-// app.use('/fa17g01', all);
-// app.use('/', all);
 app.use('/fa17g01', middleware);
-app.use('/', middleware);
+// app.use('/', middleware);
+app.use('/', index);
+app.use('/about', about);
+app.use('/search', search);
+
+// app.get('/fa17g01', function(req, res, next) {
+//   res.redirect('/fa17g01/');
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
