@@ -13,6 +13,7 @@ var all = require('./routes/all');
 var index = require('./routes/index');
 var about = require('./routes/about');
 var search = require('./routes/search');
+var middleware = require('./routes/middleware');
 
 var app = express();
 
@@ -30,10 +31,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
-//app.use('/', all);
-app.use('/fa17g01', index);
-app.use('/fa17g01/about', about);
-app.use('/fa17g01/search', search);
+//app.use('/', index);
+app.use('/fa17g01', middleware);
+// app.use('/fa17g01/about', about);
+// app.use('/fa17g01/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

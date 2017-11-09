@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-
 router.get('/', function(req, res, next) {
   var mysql = require('mysql');
   var connection = mysql.createConnection({
@@ -18,10 +17,6 @@ router.get('/', function(req, res, next) {
       res.render('index.ejs', {result: result});
     });
   });
-});
-
-router.get('/fa17g01', function(req, res, next) {
-  res.redirect('/fa17g01/');
 });
 
 module.exports = router;
