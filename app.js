@@ -10,9 +10,6 @@ var googleMapsClient = require('@google/maps').createClient({
 });
 
 var middleware = require('./routes/middleware');
-var about = require('./routes/about');
-var index = require('./routes/index');
-var search = require('./routes/search');
 
 var app = express();
 
@@ -31,14 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.use('/fa17g01', middleware);
-// app.use('/', middleware);
-app.use('/', index);
-app.use('/about', about);
-app.use('/search', search);
-
-// app.get('/fa17g01', function(req, res, next) {
-//   res.redirect('/fa17g01/');
-// });
+app.use('/', middleware);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
