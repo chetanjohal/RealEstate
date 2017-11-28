@@ -14,9 +14,22 @@ router.get('/', function(req, res, next) {
     var sql = "SELECT * FROM houses";
     connection.query(sql, function (err, result, fields)
     {
-      res.render('index.ejs', {result: result});
+      //res.render('index.ejs', {result: result});
+      res.render('home.ejs');
     });
   });
+});
+
+router.get('/inbox', function(req, res, next) {
+    res.render('inbox');
+});
+
+router.get('/login', function(req, res, next) {
+    res.render('login');
+});
+
+router.get('/registration', function(req, res, next) {
+    res.render('registration');
 });
 
 module.exports = router;
