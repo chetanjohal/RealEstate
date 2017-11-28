@@ -32,4 +32,14 @@ router.get('/registration', function(req, res, next) {
     res.render('registration');
 });
 
+router.get('/house1details', function(req, res, next) {
+    res.render('house1details');
+});
+router.get('/house2details', function(req, res, next) {
+    res.render('house2details');
+});
+router.get('/house3details', function(req, res, next) {
+    res.render('house3details');
+});
+
 module.exports = router;
