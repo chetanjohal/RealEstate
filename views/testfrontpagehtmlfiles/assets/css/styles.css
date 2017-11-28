@@ -1,0 +1,112 @@
+#promo {
+  text-align:center;
+  padding:40px;
+  padding-top:200px;
+  padding-bottom:140px;
+  margin-top:-20px;
+  background:url(../../assets/img/cute-top-house-designs-and-architectural-styles-ignite-your-modern-looking-houses-prairie-style-most-minecraft-tiny-how-to-make-in-best-homes-for-sale.jpg) no-repeat;
+  background-size:cover;
+  background-position:50% 20%;
+}
+
+@media (max-width: 991px) {
+  #promo {
+    padding:20px;
+  }
+}
+
+#promo .jumbotron {
+  border-radius:20px;
+  padding:35px;
+  background-color:rgba(83,131,211,0.1);
+  max-width:800px;
+  background-position:top;
+  margin-bottom:-30px;
+  margin:0 auto;
+}
+
+.active.nav.menu:hover {
+  border-width:2px;
+  border-bottom-style:solid;
+  border-color:#43c59e;
+}
+
+@media (max-width: 991px) {
+  #promo.jumbotron {
+    padding:15px;
+  }
+}
+
+.logo {
+  max-height:20px;
+  margin-top:-20px;
+  margin-right:0;
+  margin-left:70px;
+}
+
+.feature.house.div {
+  background-color:rgba(0,16,33,0);
+}
+
+.container.feature.house.section {
+  text-align:center;
+  padding:50px;
+}
+
+.img-responsive.feature.house {
+  margin:auto;
+  width:330px;
+  min-width:100px;
+  min-height:100px;
+  height:220px;
+}
+
+.feature.paragraph {
+  padding-bottom:25px;
+  color:#FFFFFF;
+  text-shadow:2px 2px 4px #000000;
+}
+
+.feature.house.heading {
+  font-size:30px;
+  color:#ffffff;
+  margin-top:-92px;
+  margin-right:-130px;
+  text-shadow:2px 2px 4px #000000;
+}
+
+.thumbnail.house {
+  max-height:120px;
+  width:155px;
+  min-width:100px;
+  margin-bottom:0;
+  margin-right:-5px;
+  margin-left:-11px;
+  margin-top:22px;
+}
+
+.row.search.results {
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  border-bottom-color:#43C59E;
+}
+
+.jumbotron.feature.houses {
+  background:url(../../assets/img/house-modern-interior-design.jpg)no-repeat;
+  background-size:cover;
+  max-height:220px;
+}
+
+.container.house.details {
+  border-radius:8px;
+  box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.form-group {
+  display:flex;
+  justify-content:center;
+}
+
+.btn.btn-default {
+}
+
