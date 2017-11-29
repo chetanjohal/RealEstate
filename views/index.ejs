@@ -64,21 +64,21 @@
             <img src="assets/img/9f945319084aba575e3c22691a3cd03c.jpg" class="img-responsive feature house" />
           </a>
           <h1 class="feature house heading">$ <%= result[0].price %> </h1>
-          <p class="feature paragraph">1234 carlmont drive, belmont, CA 94002</p>
+          <p class="feature paragraph"><%= result[0].street %></p>
         </div>
         <div class="col-md-4 feature house 1">
           <a href="house2details.html">
             <img src="assets/img/house-modern-interior-design.jpg" class="img-responsive feature house" />
           </a>
-          <h1 class="feature house heading">$300,000 </h1>
-          <p class="feature paragraph">1420 ohyea blvd, san mateo, CA 94536</p>
+          <h1 class="feature house heading">$<%= result[1].price %> </h1>
+          <p class="feature paragraph"><%= result[1].street %></p>
         </div>
         <div class="col-md-4 feature house 1">
           <a href="house3details.html">
             <img src="assets/img/Chic-Rich-Houses-with-Pool.jpg" class="img-responsive feature house" />
           </a>
-          <h1 class="feature house heading">$500,000 </h1>
-          <p class="feature paragraph">432 holahola, san francisco, CA 95647</p>
+          <h1 class="feature house heading">$<%= result[2].price %> </h1>
+          <p class="feature paragraph"><%= result[2].street %></p>
         </div>
       </div>
       <div></div>
