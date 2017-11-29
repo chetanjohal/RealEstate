@@ -59,9 +59,11 @@
       <h1 style="margin-top:-8px;">Our feature houses</h1>
       <p style="font-family:Rubik, sans-serif;">Choose your favorite house</p>
       <div class="row">
+        <% var source0 = "data:image/png;base64," + result[0].img; %>
+        <% var href0 = "/fa17g01/house/" + result[0].house_id;%>
         <div class="col-md-4 feature house 1">
-          <a href="house1details.html">
-            <img src="assets/img/9f945319084aba575e3c22691a3cd03c.jpg" class="img-responsive feature house" />
+          <a href="<%= href0 %>">
+            <img src="<%= source0 %>" class="img-responsive feature house" />
           </a>
           <h1 class="feature house heading">$ <%= result[0].price %> </h1>
           <p class="feature paragraph"><%= result[0].street %></p>
