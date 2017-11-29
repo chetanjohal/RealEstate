@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+  <!-- Bootstrap CSS -->
+
+  <style>
+  /* Always set the map height explicitly to define the size of the div
+  * element that contains the map. */
+  .map {
+    height: 40%;
+    width: auto;
+  }
+  </style>
+</head>
+
+<body>
+
+    <div>
+        <div class="disclaimer" style="background-color:#f81717;height:24px;">
+            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+        </div>
+        <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
+                        <li role="presentation"><a href="/fa17g01/inbox/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
+                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
+                        <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+    <main role="main">
+      <div>
+        <h1></br></h1>
+        <h1>Found <%= result.length %> results for <%= word %>:</h1>
+      </div>
+      <% if(result.length != 0){
+        for(var i = 0; i<result.length; i++){ %>
+          <div class="jumbotron">
+            <h1>House <%= i+1 %></h1>
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list-group">
+                  <li class="list-group-item"><strong>Street:</strong> <%= result[i].street %></li>
+                  <li class="list-group-item"><strong>ZIP:</strong> <%= result[i].zip %></li>
+                  <li class="list-group-item"><strong>City:</strong> <%= result[i].city %></li>
+                  <li class="list-group-item"><strong>Price:</strong> $<%= result[i].price %></li>
+                  <li class="list-group-item"><strong>Description:</strong> <%= result[i].description %></li>
+                  <li class="list-group-item"><strong>Bedrooms:</strong> <%= result[i].bedrooms %></li>
+                  <li class="list-group-item"><strong>Baths:</strong> <%= result[i].baths %></li>
+                  <li class="list-group-item"><strong>Backyard:</strong> <%= result[i].backyard %></li>
+                  <li class="list-group-item"><strong>Pool:</strong> <%= result[i].pool %></li>
+                  <li class="list-group-item"><strong>AC:</strong> <%= result[i].ac %></li>
+                  <li class="list-group-item"><strong>Publish Date:</strong> <%= result[i].publish_date %></li>
+                  <li class="list-group-item"><strong>Year:</strong> <%= result[i].yr %></li>
+                </ul>
+                </div>
+                <div class="col-sm-6">
+                  <% var source = "data:image/png;base64," + result[i].img; %>
+                  <div class="center-block">
+                    <img  src="<%= source %>" class="img-thumbnail center-block img-responsive" />
+                  </div>
+                  <div id="map<%=i%>" class="map">
+                    <iframe
+                    width="450"
+                    height="250"
+                    frameborder="0" style="border:0"
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%=result[i].city%>,<%=result[i].street%>" allowfullscreen>
+                  </iframe>
+                </div>
+              </div>
+              <!-- end right colum -->
+            </div>
+            <!-- end row -->
+          </div>
+          <!-- end jumbotron -->
+          <% }} %>
+
+        </main>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    </body>
+    </html>
