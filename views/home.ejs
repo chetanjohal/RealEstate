@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untitled</title>
+  <title>Home</title>
   <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
@@ -60,12 +60,12 @@
       <p style="font-family:Rubik, sans-serif;">Choose your favorite house</p>
       <div class="row">
 
-        <% var href0 = "/fa17g01/house/" + result[0].house_id;
-         var href1 = "/fa17g01/house/" + result[1].house_id;
-         var href2 = "/fa17g01/house/" + result[2].house_id;
-         var source0 = "data:image/png;base64," + result[0].img;
-         var source1 = "data:image/png;base64," + result[1].img;
-         var source2 = "data:image/png;base64," + result[2].img; %>
+        <% var href0 = "/fa17g01/house/" + result[0].house_id;%>
+        <% var href1 = "/fa17g01/house/" + result[1].house_id;%>
+        <% var href2 = "/fa17g01/house/" + result[2].house_id;%>
+        <% var source0 = "data:image/png;base64," + result[0].img; %>
+        <% var source1 = "data:image/png;base64," + result[1].img; %>
+        <% var source2 = "data:image/png;base64," + result[2].img; %>
 
         <div class="col-md-4 feature house 1">
           <a target="_blank" href="<%= href0 %>">
