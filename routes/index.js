@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
     connection.query(sql, function (err, result, fields)
     {
       //res.render('index.ejs', {result: result});
-      res.render('home.ejs');
+      res.render('home.ejs', {result: result});
     });
   });
 });
