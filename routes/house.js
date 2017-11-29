@@ -61,8 +61,8 @@ router.get('/:house_id', function(req, res, next) {
     var sql = "SELECT * FROM houses WHERE house_id=" + house_id;
     connection.query(sql, function (err, result, fields)
     {
-      //res.render('results.ejs', {word: word, result: result});
-      res.send(result);
+      res.render('house.ejs', {result: result});
+      //res.send(result);
     });
   });
 });

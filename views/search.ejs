@@ -2,108 +2,111 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
-    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/dannyStyle.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
-    <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
-    <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
-    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+  <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+  <link rel="stylesheet" href="assets/css/dannyStyle.css">
+  <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
+  <link rel="stylesheet" href="assets/css/Navigation-Clean1.css">
+  <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="assets/css/Pretty-Search-Form.css">
+  <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
-    <div>
-        <div class="disclaimer" style="background-color:#f81717;height:24px;">
-            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
-        </div>
-        <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
-            <div class="container">
-                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="https://sfsuse.com/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
-                        <li role="presentation"><a href="inbox.html" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
-                        <li role="presentation"><a href="login.html" class="active nav menu" style="color:#ffffff;">Log in</a></li>
-                        <li role="presentation"><a href="registration.html" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+  <div>
+    <div class="disclaimer" style="background-color:#f81717;height:24px;">
+      <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
     </div>
-    <div style="margin-top:37px;margin-bottom:100px;">
-        <div class="container">
-            <div class="row" style="padding-bottom:0;">
-                <div class="col-md-6">
-                  <% if(result.length != 0){
-                    for(var i = 0; i<result.length; i++){ %>
-                      <% var source = "data:image/png;base64," + result[i].img; %>
-                    <div class="row search results">
-                        <div class="col-md-4" style="margin:auto;padding:auto;height:auto;">
-                          <img src="<%= source %>" class="thumbnail house" style="margin-left:-11px;margin-top:22px;">
-                        </div>
-                        <div class="col-md-8 col-md-offset-0">
-                            <h1 style="font-size:24px;"> $<%= result[i].price %></h1>
-                            <p style="height:110px;font-size:12px;"><%= result[i].street %>, <%= result[i].zip %> <%= result[i].city %></p>
-                        </div>
-                    </div>
-                  <% }} %>
-                    <!-- <div class="row search results">
-                        <div class="col-md-4" style="margin:auto;padding:auto;height:auto;"><img src="assets/img/BaQYnUTCUAA_s57.jpg" class="thumbnail house"></div>
-                        <div class="col-md-8 col-md-offset-0">
-                            <h1 style="font-size:24px;"> $100000</h1>
-                            <p style="height:110px;font-size:12px;">12345 el monte road, los altos, CA 94002.New two-toned paint throughoutNew carpet and blinds throughoutDining area off kitchen and living room with ceiling fanKitchen complete with skylight, granite counter tops, wall&nbsp;sl</p>
-                        </div>
-                    </div>
-                    <div class="row search results">
-                        <div class="col-md-4" style="margin:auto;padding:auto;height:auto;"><img src="assets/img/imagereader.jpg" class="thumbnail house"></div>
-                        <div class="col-md-8 col-md-offset-0">
-                            <h1 style="font-size:24px;"> $100000</h1>
-                            <p style="height:110px;font-size:12px;">12345 el monte road, los altos, CA 94002.New two-toned paint throughoutNew carpet and blinds throughoutDining area off kitchen and living room with ceiling fanKitchen complete with skylight, granite counter tops, wall&nbsp;sl</p>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="col-md-6"><img class="img-responsive" src="assets/img/O2EOCxf.png" style="width:595px;height:378px;margin-left:-10px;"></div>
-            </div>
+    <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
+      <div class="container">
+        <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
         </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li role="presentation"><a href="https://sfsuse.com/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
+            <li role="presentation"><a href="inbox.html" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
+            <li role="presentation"><a href="login.html" class="active nav menu" style="color:#ffffff;">Log in</a></li>
+            <li role="presentation"><a href="registration.html" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div style="margin-top:37px;margin-bottom:100px;">
+    <div class="container">
+      <div class="row" style="padding-bottom:0;">
+        <div class="col-md-6">
+          <% if(result.length != 0){
+            for(var i = 0; i<result.length; i++){ %>
+              <% var source = "data:image/png;base64," + result[i].img; %>
+              <div class="row search results">
+                <div class="col-md-4" style="margin:auto;padding:auto;height:auto;">
+                  <img src="<%= source %>" class="thumbnail house" style="margin-left:-11px;margin-top:22px;">
+                </div>
+                <% var hrefHouseId = "/fa17g01/house/" + result[i].house_id;
+                <a href="<%= hrefHouseId %>">
+                  <div class="col-md-8 col-md-offset-0">
+                    <h1 style="font-size:24px;"> $<%= result[i].price %></h1>
+                    <p style="height:110px;font-size:12px;"><%= result[i].street %>, <%= result[i].zip %> <%= result[i].city %></p>
+                  </div>
+                </a>
+              </div>
+              <% }} %>
+              <!-- <div class="row search results">
+              <div class="col-md-4" style="margin:auto;padding:auto;height:auto;"><img src="assets/img/BaQYnUTCUAA_s57.jpg" class="thumbnail house"></div>
+              <div class="col-md-8 col-md-offset-0">
+              <h1 style="font-size:24px;"> $100000</h1>
+              <p style="height:110px;font-size:12px;">12345 el monte road, los altos, CA 94002.New two-toned paint throughoutNew carpet and blinds throughoutDining area off kitchen and living room with ceiling fanKitchen complete with skylight, granite counter tops, wall&nbsp;sl</p>
+            </div>
+          </div>
+          <div class="row search results">
+          <div class="col-md-4" style="margin:auto;padding:auto;height:auto;"><img src="assets/img/imagereader.jpg" class="thumbnail house"></div>
+          <div class="col-md-8 col-md-offset-0">
+          <h1 style="font-size:24px;"> $100000</h1>
+          <p style="height:110px;font-size:12px;">12345 el monte road, los altos, CA 94002.New two-toned paint throughoutNew carpet and blinds throughoutDining area off kitchen and living room with ceiling fanKitchen complete with skylight, granite counter tops, wall&nbsp;sl</p>
+        </div>
+      </div> -->
     </div>
-    <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
-        <div class="container">
-            <div class="row" style="margin-right:14px;">
-                <div class="col-md-4 col-sm-6 footer-navigation">
-                    <h3><a href="#">Unlock</a></h3>
-                    <p class="links"><a href="/fa17g01/">Home</a><strong> ·  </strong><a href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a href="registration.html"> Sign up</a><strong> </strong></p>
-                    <p class="company-name">Unlock © 2017 </p>
-                </div>
-                <div class="col-md-4 col-sm-6 footer-contacts">
-                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                        <p><span class="new-line-span">1600 Holloway Ave</span> San Franscisco, CA 94132</p>
-                    </div>
-                    <div><i class="fa fa-phone footer-contacts-icon"></i>
-                        <p class="footer-center-info email text-left"> 123456789</p>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-4 footer-about">
-                    <h4>About the company</h4>
-                    <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together to creatte a real estate website that provides houses. </p>
-                    <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
-                </div>
-            </div>
+    <div class="col-md-6"><img class="img-responsive" src="assets/img/O2EOCxf.png" style="width:595px;height:378px;margin-left:-10px;"></div>
+  </div>
+</div>
+</div>
+<footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
+  <div class="container">
+    <div class="row" style="margin-right:14px;">
+      <div class="col-md-4 col-sm-6 footer-navigation">
+        <h3><a href="#">Unlock</a></h3>
+        <p class="links"><a href="/fa17g01/">Home</a><strong> ·  </strong><a href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a href="registration.html"> Sign up</a><strong> </strong></p>
+        <p class="company-name">Unlock © 2017 </p>
+      </div>
+      <div class="col-md-4 col-sm-6 footer-contacts">
+        <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+          <p><span class="new-line-span">1600 Holloway Ave</span> San Franscisco, CA 94132</p>
         </div>
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <div><i class="fa fa-phone footer-contacts-icon"></i>
+          <p class="footer-center-info email text-left"> 123456789</p>
+        </div>
+      </div>
+      <div class="clearfix visible-sm-block"></div>
+      <div class="col-md-4 footer-about">
+        <h4>About the company</h4>
+        <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together to creatte a real estate website that provides houses. </p>
+        <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+      </div>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
