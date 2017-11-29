@@ -1,51 +1,116 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>csc 648 css using Bootstrap</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
+  <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
 </head>
 
 <body>
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-      <a class="navbar-brand" href="">Unlock</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/fa17g01/about/">About us</a>
-          </li>
-        </ul>
-        <form class="form-inline mt-2 mt-md-0" action="/fa17g01/search">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="word" acti>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
-    <main role="main">
-      <div>
-        <h1></br></h1>
-        <h1>Welcome to unlock !</h1>
-      </div>
-      <div>
-        <h5>We currently have <%=result.length%> houses</h5>
-      </div>
-
-    </main>
+    <div>
+        <div class="disclaimer" style="background-color:#f81717;height:24px;">
+            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+        </div>
+        <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
+            <div class="container">
+                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
+                        <li role="presentation"><a href="/fa17g01/inbox/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
+                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
+                        <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+  </div>
+  <div id="promo" style="margin-top:-3px;">
+    <div class="jumbotron">
+      <h1 style="font-size:43px;font-family:Rubik, sans-serif;color:#ffffff;line-height:54px;">Home is where the heart is </h1>
+      <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;">let us help you to unlock the house where you can call home</p>
+      <form class="search-form">
+        <div class="input-group">
+          <div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>
+          <input class="form-control search bar" type="text" placeholder="I am looking for.." maxlength="40">
+          <div class="input-group-btn"><a class="btn btn-success" role="button" href="search.html">Search </a></div>
+        </div>
+      </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-
+  </div>
+  <div class="feature house div">
+    <div class="container feature house section" style="font-size:18px;">
+      <h1 style="margin-top:-8px;">Our feature houses</h1>
+      <p style="font-family:Rubik, sans-serif;">Choose your favorite house</p>
+      <div class="row">
+        <div class="col-md-4 feature house 1">
+          <a href="house1details.html">
+            <img src="assets/img/9f945319084aba575e3c22691a3cd03c.jpg" class="img-responsive feature house" />
+          </a>
+          <h1 class="feature house heading">$ <%= result[0].price %> </h1>
+          <p class="feature paragraph">1234 carlmont drive, belmont, CA 94002</p>
+        </div>
+        <div class="col-md-4 feature house 1">
+          <a href="house2details.html">
+            <img src="assets/img/house-modern-interior-design.jpg" class="img-responsive feature house" />
+          </a>
+          <h1 class="feature house heading">$300,000 </h1>
+          <p class="feature paragraph">1420 ohyea blvd, san mateo, CA 94536</p>
+        </div>
+        <div class="col-md-4 feature house 1">
+          <a href="house3details.html">
+            <img src="assets/img/Chic-Rich-Houses-with-Pool.jpg" class="img-responsive feature house" />
+          </a>
+          <h1 class="feature house heading">$500,000 </h1>
+          <p class="feature paragraph">432 holahola, san francisco, CA 95647</p>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <footer style="background-color:#003459;padding-top:55px;margin-top:-22px;padding-left:40px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-sm-6 footer-navigation">
+          <h3><a href="#">Unlock</a></h3>
+          <p class="links"><a href="home.html">Home</a><strong> ·  </strong><a href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a href="registration.html"> Sign up</a><strong> </strong></p>
+          <p class="company-name">Unlock © 2017 </p>
+        </div>
+        <div class="col-md-4 col-sm-6 footer-contacts">
+          <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+            <p><span class="new-line-span">1600 Holloway Ave</span> San Franscisco, CA 94132</p>
+          </div>
+          <div><i class="fa fa-phone footer-contacts-icon"></i>
+            <p class="footer-center-info email text-left"> 123456789</p>
+          </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-4 footer-about">
+          <h4>About the company</h4>
+          <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together to creatte a real estate website that provides houses. </p>
+          <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+
 </html>
