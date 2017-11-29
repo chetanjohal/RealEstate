@@ -11,12 +11,12 @@ router.get('/', function(req, res, next) {
   });
   connection.connect(function(err) {
     if (err) throw err;
-    var sql = "SELECT * FROM houses";
+    var sql = "select * from houses order by rand() limit 3";
     connection.query(sql, function (err, result, fields)
     {
       //res.render('index.ejs', {result: result});
-      //res.render('home.ejs', {result: result});
-      res.render('home');
+      res.render('home.ejs', {result: result});
+      //res.render('home');
     });
   });
 });
