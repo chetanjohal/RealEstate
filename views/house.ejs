@@ -67,10 +67,10 @@
                       </ul>
                 </div>
                 <% var source = "data:image/png;base64," + result[0].img; %>
-                <div class="col-md-6"><img style="background-image:url(<%= source %>);background-size:cover;height:225px;width:457px;background-position:0% 35%;">
+                <div class="col-md-6"><img src="<%=source%>" style="background-size:cover;height:225px;width:457px;background-position:0% 35%;">
                     <div class="row" style="margin-right:0;margin-left:-12px;">
                         <div class="col-md-12" style="margin-bottom:10px;width:auto;height:auto;">
-                            <iframe 
+                            <iframe
                             frameborder="0"
                             width="100%" height="400"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%=result[0].city%>,<%=result[0].street%>"
