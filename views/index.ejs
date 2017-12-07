@@ -22,8 +22,8 @@
 
 <body>
     <div>
-        <div class="disclaimer" style="background-color:#f81717;height:24px;">
-            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+        <div class="disclaimer" style="background-color:#43c59e;height:24px;">
+            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
         </div>
         <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
             <div class="container">
@@ -33,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
-                        <li role="presentation"><a href="/fa17g01/inbox/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
+                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Agents</a></li>
                         <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
                         <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
                     </ul>
@@ -47,7 +47,24 @@
       <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;">let us help you to unlock the house where you can call home</p>
       <form class="search-form" action="/fa17g01/search">
         <div class="input-group">
-          <div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>
+					<div class="input-group-btn">
+                        <div class="dropdown btn-group" role="group">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">City <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="#">City1</a></li>
+                                <li role="presentation"><a href="#">City2 </a></li>
+                                <li role="presentation"><a href="#">City3 </a></li>
+                            </ul>
+                        </div>
+                        <div class="dropdown btn-group" role="group">
+                            <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Zip code<span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li role="presentation"><a href="#">zip1 </a></li>
+                                <li role="presentation"><a href="#">zip2 </a></li>
+                                <li role="presentation"><a href="#">zip3 </a></li>
+                            </ul>
+                        </div>
+                    </div>
           <input class="form-control search bar" type="text" placeholder="City, zip, street" maxlength="40" name="word">
           <div class="input-group-btn"><button  class="btn btn-success" type="submit">Search </button></div>
         </div>
