@@ -21,12 +21,20 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/inbox', function(req, res, next) {
-    res.render('inbox');
+router.get('/agents', function(req, res, next) {
+    res.render('agents');
 });
 
 router.get('/login', function(req, res, next) {
     res.render('login');
+});
+
+router.get('/agenthome', function(req, res, next) {
+    res.render('agenthome');
+});
+
+router.get('/agents', function(req, res, next) {
+    res.render('agents');
 });
 
 router.get('/registration', function(req, res, next) {
