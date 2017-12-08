@@ -2,124 +2,143 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Untitled</title>
-  <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
 </head>
 
 <body>
-    <div>
-        <div class="disclaimer" style="background-color:#f81717;height:24px;">
-            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
-        </div>
-        <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
-            <div class="container">
-                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                </div>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
-                        <li role="presentation"><a href="/fa17g01/inbox/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
-                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
-                        <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+<div>
+    <div class="disclaimer" style="background-color:#f81717;height:24px;">
+        <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
+            This is a Student project for SFSU CSC 648 section 2 - team 1</p>
     </div>
-    <div>
-        <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;"><a class="btn btn-info" role="button" href="/fa17g01/">Go back</a></div>
-    </div>
-    <div style="margin-top:35px;margin-bottom:35px;">
-        <div class="container house details" style="padding:20;padding-right:0px;padding-top:21px;padding-bottom:21px;padding-left:9px;width:1018px;height:514px;">
-            <div class="row" style="margin-right:-24px;margin-left:0px;">
-                <div class="col-md-6">
-                    <h1 style="font-size:32px;">$<%= result[0].price %> </h1>
-                    <h3> <%= result[0].street %></h3>
-                    <p> <%= result[0].description %> </p>
-                      <ul class="list-group">
-                        <li class="list-group-item"><strong>Street:</strong> <%= result[0].street %></li>
-                        <li class="list-group-item"><strong>ZIP:</strong> <%= result[0].zip %></li>
-                        <li class="list-group-item"><strong>City:</strong> <%= result[0].city %></li>
-                        <li class="list-group-item"><strong>Price:</strong> $<%= result[0].price %></li>
-                        <li class="list-group-item"><strong>Description:</strong> <%= result[0].description %></li>
-                        <li class="list-group-item"><strong>Bedrooms:</strong> <%= result[0].bedrooms %></li>
-                        <li class="list-group-item"><strong>Baths:</strong> <%= result[0].baths %></li>
-                        <li class="list-group-item"><strong>Backyard:</strong> <%= result[0].backyard %></li>
-                        <li class="list-group-item"><strong>Pool:</strong> <%= result[0].pool %></li>
-                        <li class="list-group-item"><strong>AC:</strong> <%= result[0].ac %></li>
-                        <li class="list-group-item"><strong>Publish Date:</strong> <%= result[0].publish_date %></li>
-                        <li class="list-group-item"><strong>Year:</strong> <%= result[0].yr %></li>
-                      </ul>
-                </div>
-                <% var source = "data:image/png;base64," + result[0].img; %>
-                <div class="col-md-6"><img src="<%=source%>" style="background-size:cover;height:225px;width:457px;background-position:0% 35%;">
-                    <div class="row" style="margin-right:0;margin-left:-12px;">
-                        <div class="col-md-12" style="margin-bottom:10px;width:auto;height:auto;">
-                            <iframe
-                            frameborder="0"
-                            width="100%" height="400"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%=result[0].city%>,<%=result[0].street%>"
-                            class="map-screen"
-                            style="margin-top: 20px;width:457px;height:225px;"
-                            allowfullscreen>
-                          </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="contact-clean" style="padding-top:16px;padding-bottom:22px;background-color:#ffffff;">
-        <form method="post" style="background-color:#ffffff;">
-            <h2 class="text-center"> I like this house!</h2>
-            <div class="form-group">
-                <textarea class="form-control" rows="14" name="message" placeholder="Message">Hello! I really like this house, please give me further information about this house please</textarea>
-            </div>
-            <div class="form-group"><a class="btn btn-primary" role="button" href="/fa17g01/registration/" style="width:400px;">send </a></div>
-        </form>
-    </div>
-    <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
+    <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
-            <div class="row" style="margin-right:14px;">
-                <div class="col-md-4 col-sm-6 footer-navigation">
-                    <h3><a href="#">Unlock</a></h3>
-                    <p class="links"><a href="/fa17g01/">Home</a><strong> ·  </strong><a href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a href="registration.html"> Sign up</a><strong> </strong></p>
-                    <p class="company-name">Unlock © 2017 </p>
+            <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/"
+                                          style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
+                            us</a></li>
+                    <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a>
+                    </li>
+                    <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
+                            in</a></li>
+                    <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
+                                               style="color:#ffffff;">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div>
+    <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;"><a class="btn btn-info"
+                                                                                            role="button"
+                                                                                            href="/fa17g01/">Go back</a>
+    </div>
+</div>
+<div style="margin-top:35px;margin-bottom:35px;">
+    <div class="container house details"
+         style="padding:20;padding-right:0px;padding-top:21px;padding-bottom:21px;padding-left:9px;width:1018px;">
+        <div class="row" style="margin-right:-24px;margin-left:0px;">
+            <div class="col-md-6">
+                <h1 style="font-size:32px;">$<%= result[0].price %> </h1>
+                <h3> <%= result[0].street %></h3>
+                <p> <%= result[0].description %> </p>
+                <ul class="list-group">
+                    <li class="list-group-item"><strong>Street:</strong> <%= result[0].street %></li>
+                    <li class="list-group-item"><strong>ZIP:</strong> <%= result[0].zip %></li>
+                    <li class="list-group-item"><strong>City:</strong> <%= result[0].city %></li>
+                    <li class="list-group-item"><strong>Price:</strong> $<%= result[0].price %></li>
+                    <li class="list-group-item"><strong>Description:</strong> <%= result[0].description %></li>
+                    <li class="list-group-item"><strong>Bedrooms:</strong> <%= result[0].bedrooms %></li>
+                    <li class="list-group-item"><strong>Baths:</strong> <%= result[0].baths %></li>
+                    <li class="list-group-item"><strong>Backyard:</strong> <%= result[0].backyard %></li>
+                    <li class="list-group-item"><strong>Pool:</strong> <%= result[0].pool %></li>
+                    <li class="list-group-item"><strong>AC:</strong> <%= result[0].ac %></li>
+                    <li class="list-group-item"><strong>Publish Date:</strong> <%= result[0].publish_date %></li>
+                    <li class="list-group-item"><strong>Year:</strong> <%= result[0].yr %></li>
+                </ul>
+            </div>
+            <% var source = "data:image/png;base64," + result[0].img; %>
+            <div class="container col-md-6 ">
+                <div class="row"><img src="<%= source %>"
+                                      style="background-size:cover;width:457px;background-position:0% 35%;">
                 </div>
-                <div class="col-md-4 col-sm-6 footer-contacts">
-                    <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                        <p><span class="new-line-span">1600 Holloway Ave</span> San Franscisco, CA 94132</p>
-                    </div>
-                    <div><i class="fa fa-phone footer-contacts-icon"></i>
-                        <p class="footer-center-info email text-left"> 123456789</p>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-4 footer-about">
-                    <h4>About the company</h4>
-                    <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together to creatte a real estate website that provides houses. </p>
-                    <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-github"></i></a></div>
+                <div class="row" style="margin-right:0;margin-left:-12px;">
+                        <iframe
+                                frameborder="0"
+                                width="100%" height="100%"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
+                                class="map-screen"
+                                style="margin-top: 20px;width:100%; height: 100%;"
+                                allowfullscreen>
+                        </iframe>
                 </div>
             </div>
         </div>
-    </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    </div>
+</div>
+<div class="contact-clean" style="padding-top:16px;padding-bottom:22px;background-color:#ffffff;">
+    <form method="post" style="background-color:#ffffff;">
+        <h2 class="text-center"> I like this house!</h2>
+        <div class="form-group">
+            <textarea class="form-control" rows="14" name="message" placeholder="Message">Hello! I really like this house, please give me further information about this house please</textarea>
+        </div>
+        <div class="form-group"><a class="btn btn-primary" role="button" href="/fa17g01/registration/"
+                                   style="width:400px;">send </a></div>
+    </form>
+</div>
+<footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
+    <div class="container">
+        <div class="row" style="margin-right:14px;">
+            <div class="col-md-4 col-sm-6 footer-navigation">
+                <h3><a href="#">Unlock</a></h3>
+                <p class="links"><a href="/fa17g01/">Home</a><strong> · </strong><a
+                            href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
+                            href="registration.html"> Sign up</a><strong> </strong></p>
+                <p class="company-name">Unlock © 2017 </p>
+            </div>
+            <div class="col-md-4 col-sm-6 footer-contacts">
+                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
+                    <p><span class="new-line-span">1600 Holloway Ave</span> San Franscisco, CA 94132</p>
+                </div>
+                <div><i class="fa fa-phone footer-contacts-icon"></i>
+                    <p class="footer-center-info email text-left"> 123456789</p>
+                </div>
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 footer-about">
+                <h4>About the company</h4>
+                <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
+                    to creatte a real estate website that provides houses. </p>
+                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                                class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
+                                class="fa fa-github"></i></a></div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

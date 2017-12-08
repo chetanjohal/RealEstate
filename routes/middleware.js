@@ -7,6 +7,8 @@ var index = require('./index');
 var house = require('./house');
 var client = require('./client');
 var agent = require('./agent');
+var login = require('./login');
+var register = require('./register');
 
 
 router.use('/', index);
@@ -15,6 +17,8 @@ router.use('/search', search);
 router.use('/house', house);
 router.use('/client', client);
 router.use('/agent', agent);
+router.use('/login', login);
+router.use('/registration', register);
 
 
 router.get('/fa17g01', function(req, res, next) {
