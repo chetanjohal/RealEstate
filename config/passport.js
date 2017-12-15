@@ -18,26 +18,21 @@ var connection = mysql.createConnection({
 // passport needs ability to serialize and unserialize users out of session
 // expose this function to our app using module.exports
 module.exports = function (passport) {
-// used to serialize the user for the session
+
     passport.serializeUser(function (user, done) {
-        console.log("serialize");
-        done(null, user.client_id);
+        //console.log("serialize: "+user.username);
+        done(null, user.username);
     });
 
-// used to deserialize the user
-    passport.deserializeUser(function (id, done) {
-        connection.query("SELECT * FROM users WHERE id = " + id, function (err, rows) {
-            console.log("deserialize");
-            done(err, rows[0]);
+    passport.deserializeUser(function (user, done) {
+        //If using Mongoose with MongoDB; if other you will need JS specific to that schema
+        //User.findById(id, function (err, user) {
+        //console.log("deserialize: "+user);
+        connection.query("SELECT * FROM `clients` WHERE `username` = '" + user + "'", function (err, user) {
+            done(err, user[0]);
         });
     });
 
-
-// =========================================================================
-// LOCAL SIGNUP ============================================================
-// =========================================================================
-// we are using named strategies since we have one for login and one for signup
-// by default, if there was no name, it would just be called 'local'
 
     passport.use('local-signup', new LocalStrategy({
             // by default, local strategy uses username and password, we will override with email
@@ -51,8 +46,8 @@ module.exports = function (passport) {
             // we are checking to see if the user trying to login already exists
             connection.query("SELECT * FROM clients WHERE username = '" + username + "'", function (err, rows) {
                 //connection.query("select * from users where email = '" + email + "'", function (err, rows) {
-                console.log(rows);
-                console.log("above row object");
+                //console.log(rows);
+                //console.log("above row object");
                 if (err)
                     return done(err);
                 if (rows.length) {

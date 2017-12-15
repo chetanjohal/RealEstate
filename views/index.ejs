@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
   <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
   <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+    <% if ( username ) { %>
+    <input type="hidden" id="username" value="<%=username%>"/>
+    <% } %>
 </head>
 
 <body>
@@ -34,14 +37,28 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
                         <li role="presentation"><a href="/fa17g01/agenthome/" class="active nav menu" style="color:#ffffff;">Agents</a></li>
+                        <% if ( username ) { %>
+                       <!-- <li role="presentation" ><a href="#" class="nav menu" style="color:#ffffff;">Hi <%=username%></a></li>
+                        <li role="presentation"><a href="/fa17g01/logout/" class="active nav menu" style="color:#ffffff;">Logout</a></li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                                Hi <%=username%>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
+                            </div>
+                        </li>
+                        <% } else {%>
                         <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
                         <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+                        <%}%>
                     </ul>
                 </div>
             </div>
         </nav>
   </div>
   <div id="promo" style="margin-top:-3px; padding-bottom:107px;" >
+
     <div class="jumbotron" style="padding-top:0px;margin-top:-110px;">
       <h1 style="font-size:43px;font-family:Rubik, sans-serif;color:#ffffff;line-height:54px;">Home is where the heart is </h1>
       <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;">let us help you to unlock the house where you can call home</p>
@@ -136,6 +153,9 @@
   </footer>
   <script src="/fa17g01/assets/js/jquery.min.js"></script>
   <script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    console.log($("#username").val());
+</script>
 </body>
 
 </html>
