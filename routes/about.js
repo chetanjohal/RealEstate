@@ -3,7 +3,13 @@ var router = express.Router();
 
 /* GET about page. */
 router.get('/', function(req, res, next) {
-    res.render('about');
+    var user = new Object();// = {username: "null", isAgent: 0, email: 0};
+    if(req.user != null){
+        user.username = req.user.username;
+        user.email = req.user.email;
+        user.isAgent = req.user.is_agent;
+    }
+    res.render('about', user);
 });
 
 /* GET about pages. */

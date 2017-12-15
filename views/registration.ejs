@@ -70,24 +70,24 @@
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios1" value="0" checked>
                     Buyer
                 </label>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios2" value="1">
                     Seller
                 </label>
             </div>
             <div class="form-group">
                 <div class="checkbox">
-                    <label class="control-label">
-                        <input type="checkbox">I agree to the license terms.</label>
+                    <label  class="control-label">
+                        <input type="checkbox" id="agree">I agree to the license terms.</label>
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">Sign Up
+                <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;" disabled>Sign Up
                 </button>
             </div>
             <a href="/fa17g01/login" class="already">You already have an account? Login here.</a></form>
@@ -125,6 +125,18 @@
 </footer>
 <script src="/fa17g01/assets/js/jquery.min.js"></script>
 <script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    $('#agree').change(function(){
+        console.log("change");
+        if(this.checked){
+            document.getElementById('signUp').disabled = !this.checked;
+            console.log("checked");
+        }
+        else{
+            document.getElementById('signUp').disabled = !this.checked;
+        }
+    });
+</script>
 </body>
 
 </html>

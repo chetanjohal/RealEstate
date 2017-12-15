@@ -22,20 +22,43 @@
 
 <body>
     <div>
-        <div class="disclaimer" style="background-color:#f81717;height:24px;">
-            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+        <div class="disclaimer" style="background-color:#43c59e;height:24px;">
+            <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
+                CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
         </div>
         <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
             <div class="container">
-                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
-                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/"
+                                              style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock </a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                                class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                                class="icon-bar"></span><span class="icon-bar"></span></button>
                 </div>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
-                        <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
-                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
-                        <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+                        <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
+                                us</a></li>
+
+                        <% if ( user.username) { %>
+                        <% if ( user.isAgent ) { %>
+                        <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
+                        </li>
+                        <% } %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                                Hi <%= user.username %>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
+                            </div>
+                        </li>
+                        <% } else { %>
+                        <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
+                                in</a></li>
+                        <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
+                                                   style="color:#ffffff;">Sign Up</a></li>
+                        <% } %>
                     </ul>
                 </div>
             </div>

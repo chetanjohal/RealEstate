@@ -46,6 +46,13 @@ router.post('/new', function(req, res, next) {
 router.get('/:house_id', function(req, res, next) {
   var house_id = req.params.house_id;
 
+    var user = new Object();// = {username: "null", isAgent: 0, email: 0};
+    if(req.user != null){
+        user.username = req.user.username;
+        user.email = req.user.email;
+        user.isAgent = req.user.is_agent;
+    }
+
   var mysql = require('mysql');
   var connection = mysql.createConnection({
     host     : "localhost",
@@ -61,7 +68,7 @@ router.get('/:house_id', function(req, res, next) {
     var sql = "SELECT * FROM houses WHERE house_id=" + house_id;
     connection.query(sql, function (err, result, fields)
     {
-      res.render('house.ejs', {result: result});
+      res.render('house.ejs', {result: result, user});
       //res.send(result);
     });
   });

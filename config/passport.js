@@ -20,14 +20,14 @@ var connection = mysql.createConnection({
 module.exports = function (passport) {
 
     passport.serializeUser(function (user, done) {
-        console.log("serialize: "+user.username);
+        //console.log("serialize: "+user.username);
         done(null, user.username);
     });
 
     passport.deserializeUser(function (user, done) {
         //If using Mongoose with MongoDB; if other you will need JS specific to that schema
         //User.findById(id, function (err, user) {
-        console.log("deserialize: "+user);
+        //console.log("deserialize: "+user);
         connection.query("SELECT * FROM `users` WHERE `username` = '" + user + "'", function (err, user) {
             done(err, user[0]);
         });
@@ -56,11 +56,14 @@ module.exports = function (passport) {
                     // if there is no user with that email
                     // create the user
                     var newUserMysql = new Object();
-
+                    let email = req.body.email;
+                    let isAgent = req.body.is_agent;
                     newUserMysql.username = username;
                     newUserMysql.password = password; // use the generateHash function in our user model
+                    newUserMysql.email = email;
+                    console.log("isAgent: " +  isAgent);
 
-                    var insertQuery = "INSERT INTO `users` (username, password) values ('" + username + "','" + password + "')";
+                    var insertQuery = "INSERT INTO `users` (username, password, email, is_agent) values ('" + username + "','" + password + "','" +  email + "','" +  isAgent + "')";
                     insertClient(insertQuery)
                         .then(() => {
                             connection.query("SELECT * FROM `users` WHERE `username` = '" + newUserMysql.username + "'", function (err, rows) {
