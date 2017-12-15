@@ -20,15 +20,15 @@ var connection = mysql.createConnection({
 module.exports = function (passport) {
 
     passport.serializeUser(function (user, done) {
-        //console.log("serialize: "+user.username);
+        console.log("serialize: "+user.username);
         done(null, user.username);
     });
 
     passport.deserializeUser(function (user, done) {
         //If using Mongoose with MongoDB; if other you will need JS specific to that schema
         //User.findById(id, function (err, user) {
-        //console.log("deserialize: "+user);
-        connection.query("SELECT * FROM `clients` WHERE `username` = '" + user + "'", function (err, user) {
+        console.log("deserialize: "+user);
+        connection.query("SELECT * FROM `users` WHERE `username` = '" + user + "'", function (err, user) {
             done(err, user[0]);
         });
     });
@@ -44,7 +44,7 @@ module.exports = function (passport) {
 
             // find a user whose email is the same as the forms email
             // we are checking to see if the user trying to login already exists
-            connection.query("SELECT * FROM clients WHERE username = '" + username + "'", function (err, rows) {
+            connection.query("SELECT * FROM users WHERE username = '" + username + "'", function (err, rows) {
                 //connection.query("select * from users where email = '" + email + "'", function (err, rows) {
                 //console.log(rows);
                 //console.log("above row object");
@@ -60,13 +60,13 @@ module.exports = function (passport) {
                     newUserMysql.username = username;
                     newUserMysql.password = password; // use the generateHash function in our user model
 
-                    var insertQuery = "INSERT INTO clients (username, password) values ('" + username + "','" + password + "')";
+                    var insertQuery = "INSERT INTO `users` (username, password) values ('" + username + "','" + password + "')";
                     insertClient(insertQuery)
-                        .then(function (rows) {
-                            connection.query("SELECT client_id FROM clients WHERE username = '" + newUserMysql.username + "'", function (err, rows) {
+                        .then(() => {
+                            connection.query("SELECT * FROM `users` WHERE `username` = '" + newUserMysql.username + "'", function (err, rows) {
                                 console.log("rows:");
                                 console.log(rows);
-                                newUserMysql.client_id = rows[0]['client_id'];
+                                newUserMysql.user_id = rows[0]['user_id'];
                                 console.log(newUserMysql);
                                 return done(null, newUserMysql);
                             });
@@ -100,7 +100,7 @@ module.exports = function (passport) {
     passport.use('local-login', new LocalStrategy(
         function (username, password, done) {
             console.log("local-login");
-            connection.query("SELECT * FROM `clients` WHERE `username` = '" + username + "'", function (err, rows) {
+            connection.query("SELECT * FROM `users` WHERE `username` = '" + username + "'", function (err, rows) {
                 console.log(rows);
                 console.log("above row object");
                 if (err)
