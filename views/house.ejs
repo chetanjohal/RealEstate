@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title><%= result[0].street %></title>
     <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
@@ -50,10 +50,9 @@
     </nav>
 </div>
 <div>
-    <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;"><a class="btn btn-info"
-                                                                                            role="button"
-                                                                                            href="/fa17g01/">Go back</a>
-    </div>
+    <!-- <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;">
+         <a class="btn btn-info" role="button" onclick="goBack()">Go back</a>
+     </div>-->
 </div>
 <div style="margin-top:35px;margin-bottom:35px;">
     <div class="container house details"
@@ -84,14 +83,14 @@
                                       style="background-size:cover;width:457px;background-position:0% 35%;">
                 </div>
                 <div class="row" style="margin-right:0;margin-left:-12px;">
-                        <iframe
-                                frameborder="0"
-                                width="100%" height="100%"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
-                                class="map-screen"
-                                style="margin-top: 20px;width:100%; height: 100%;"
-                                allowfullscreen>
-                        </iframe>
+                    <iframe
+                            frameborder="0"
+                            width="100%" height="100%"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
+                            class="map-screen"
+                            style="margin-top: 20px;width:100%; height: 100%;"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -107,14 +106,15 @@
                                    style="width:400px;">send </a></div>
     </form>
 </div>
+</body>
 <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
     <div class="container">
         <div class="row" style="margin-right:14px;">
             <div class="col-md-4 col-sm-6 footer-navigation">
                 <h3><a href="#">Unlock</a></h3>
                 <p class="links"><a href="/fa17g01/">Home</a><strong> · </strong><a
-                            href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
-                            href="registration.html"> Sign up</a><strong> </strong></p>
+                            href="/fa17g01/about/">About</a><strong> · </strong><a
+                            href="/fa17g01/registration"> Sign up</a><strong> </strong></p>
                 <p class="company-name">Unlock © 2017 </p>
             </div>
             <div class="col-md-4 col-sm-6 footer-contacts">
@@ -129,7 +129,7 @@
             <div class="col-md-4 footer-about">
                 <h4>About the company</h4>
                 <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
-                    to creatte a real estate website that provides houses. </p>
+                    to create a real estate website that provides houses. </p>
                 <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
                                 class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
                                 class="fa fa-github"></i></a></div>
@@ -139,6 +139,11 @@
 </footer>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 
 </html>

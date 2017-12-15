@@ -30,7 +30,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cookieParser('secret'));
 
-app.use(express.static(path.join(__dirname, 'public')));
+//app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/public'));
+
 //app.use('/static', express.static(path.join(__dirname, 'public/fa17g01')))
 
 /*
