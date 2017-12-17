@@ -47,16 +47,16 @@
 }
 
 .snip1527 .delete {
-background-color: #f5f5f5;
+background-color: #ef0e3d;
 border-radius: 50%;
-color: #f4476b;
+color: #eeeeee;
 font-size: 12px;
 font-weight: 700;
 min-height: 48px;
 min-width: 48px;
 padding: 10px 0;
 position: absolute;
-right: 0px;
+right: -2px;
 text-align: center;
 text-transform: uppercase;
 top: 82px;
