@@ -134,11 +134,11 @@
                 <% var source = "data:image/png;base64," + result[i].img; %>
                 <% var hrefHouseId = "/fa17g01/house/" + result[i].house_id; %>
 
-                <div class="row search results">
+                <div class="row search results"> <a target="_blank" href="<%= hrefHouseId %>">
                     <div class="col-md-4" style="margin:auto;padding:auto;height:auto;">
                         <img src="<%= source %>" class="thumbnail house" style="margin-left:61px;margin-top:13px;width:227px;">
                     </div>
-                    <a target="_blank" href="<%= hrefHouseId %>">
+                   
                         <div class="col-md-8 col-md-offset-0">
                             <h1 style="font-size:24px;"> $<%= result[i].price %></h1>
                             <p style="height:110px;font-size:12px;"><%= result[i].street %>
