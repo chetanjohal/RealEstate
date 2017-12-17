@@ -62,16 +62,21 @@ router.get('/:house_id', function(req, res, next) {
   });
 
   connection.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
+      if (err) throw err;
+      console.log("Connected!");
 
-    var sql = "SELECT * FROM houses WHERE house_id=" + house_id;
-    connection.query(sql, function (err, result, fields)
-    {
-      res.render('house.ejs', {result: result, user});
-      //res.send(result);
-    });
-  });
+      var sql = "SELECT * FROM houses WHERE house_id=" + house_id;
+      var sqlZip = "SELECT DISTINCT zip from houses";
+      var sqlCity = "SELECT DISTINCT city from houses";
+      connection.query(sqlCity, function (err, cities) {
+          connection.query(sqlZip, function (err, zips) {
+              connection.query(sql, function (err, result, fields) {
+                  res.render('house.ejs', {result: result, user, cities, zips});
+                  //res.send(result);
+              });
+          });
+      })
+  })
 });
 
 router.get('/:house_id/images', function(req, res, next) {

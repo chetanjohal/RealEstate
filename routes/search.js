@@ -23,15 +23,21 @@ router.get('/', function (req, res, next) {
         console.log("Connected!");
 
         var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%' OR zip LIKE '%" + word + "%'";
-        connection.query(sql, function (err, results) {
-            if (results.length > 0) {
-                res.render('results', {word: word, result: results, user});
-            }
-            else {
-                connection.query("SELECT * FROM houses", function (err, results2) {
-                    res.render('results', {word: word, result: results2, user});
-                })
-            }
+        var sqlZip = "SELECT DISTINCT zip from houses";
+        var sqlCity = "SELECT DISTINCT city from houses";
+        connection.query(sqlCity, function (err, cities) {
+            connection.query(sqlZip, function (err, zips) {
+                connection.query(sql, function (err, results) {
+                    if (results.length > 0) {
+                        res.render('results', {word: word, result: results, user, cities, zips});
+                    }
+                    else {
+                        connection.query("SELECT * FROM houses", function (err, results2) {
+                            res.render('results', {word: word, result: results2, user, cities, zips});
+                        })
+                    }
+                });
+            })
         });
     });
 });

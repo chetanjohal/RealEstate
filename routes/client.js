@@ -50,7 +50,7 @@ router.get('/:client_id', function(req, res, next) {
     connection.query(sql, function (err, result, fields)
     {
       //res.render('results.ejs', {word: word, result: result});
-      res.send(result);
+      res.send(result, cities, zips);
     });
   });
 });

@@ -44,6 +44,44 @@
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
+            <div class="collapse navbar-collapse  col-sm-9 col-md-9" id="navcol-1">
+                <form class="navbar-form" action="/fa17g01/search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">City <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">Zip code<span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                               maxlength="40"
+                               name="word">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
