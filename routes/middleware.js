@@ -23,8 +23,8 @@ router.use('/registration', register);
 router.use('/logout', logout);
 
 
-router.get('/fa17g01', function(req, res, next) {
-  res.redirect('/fa17g01/');
+router.get('/fa17g01', function (req, res, next) {
+    res.redirect('/fa17g01/');
 });
 
 module.exports = router;

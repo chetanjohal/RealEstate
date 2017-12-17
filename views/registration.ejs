@@ -9,7 +9,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-111266925-1');
@@ -109,10 +113,12 @@
                        required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                       required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password2" id="password2" placeholder="Password (repeat)"
+                <input class="form-control" type="password" name="password2" id="password2"
+                       placeholder="Password (repeat)"
                        required>
             </div>
             <div class="form-check">
@@ -138,7 +144,8 @@
                         disabled>Sign Up
                 </button>
             </div>
-            <a href="/fa17g01/login" class="already">You already have an account? Login here.</a></form>
+            <a href="/fa17g01/login" class="already">You already have an account? Login here.</a>
+        </form>
     </div>
 </div>
 <footer style="background-color:#003459;padding-top:55px;margin-top:-22px;padding-left:40px;">

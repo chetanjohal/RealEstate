@@ -9,7 +9,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-111266925-1');
@@ -86,8 +90,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
                             us</a></li>
-
-                    <% if ( user.username) { %>
+                    <% if ( user.username ) { %>
                     <% if ( user.isAgent ) { %>
                     <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
                     </li>
@@ -98,7 +101,7 @@
                             Hi <%= user.username %>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
+                            <a class="dropdown-item" href="/fa17g01/logout/<%=pageId%>/">Logout</a>
                         </div>
                     </li>
                     <% } else { %>
@@ -165,9 +168,122 @@
         <div class="form-group">
             <textarea class="form-control" rows="14" name="message" placeholder="Message">Hello! I really like this house, please give me further information about this house please</textarea>
         </div>
-        <div class="form-group"><a class="btn btn-primary" role="button" href="/fa17g01/registration/"
-                                   style="width:400px;">send </a></div>
+        <% if ( user.username ) { %>
+        <div class="form-group"><a id="contactButton" class="btn btn-primary" role="button"
+                                   style="width:400px;" data-toggle="modal" data-target="#sentModal">Send </a>
+        </div>
+
+        <% } else{ %>
+        <div class="form-group">
+            <a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal" data-target="#loginModal">Log In </a>
+            <a id="signup" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signinModal">Sign Up </a>
+        </div>
+
+        <% } %>
     </form>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/fa17g01/login/<%=pageId%>/" method="post" id="logIn">
+                    <h2 class="text-center"><strong>Login</strong> to your account.</h2>
+                    <div class="form-group">
+                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">Log me in
+                        </button>
+                    </div>
+                    <a href="#" class="already">Forgot your password?click here.</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/fa17g01/registration/<%=pageId%>/" method="post" id="signIn">
+                    <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                    <div class="form-group">
+                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control email-input" type="email" name="email" id="email" placeholder="Email"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password2" id="password2"
+                               placeholder="Password (repeat)"
+                               required>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios1" value="0" checked>
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios2" value="1">
+                            Seller
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label class="control-label">
+                                <input type="checkbox" id="agree">I agree to the license terms.</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;"
+                                disabled>Sign Up
+                        </button>
+                    </div>
+                    <a href="/fa17g01/login" class="already">You already have an account? Login here.</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Message sent !</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Your message has been sent!</br></br>The agent in charge of this house will contact you soon on your email address.</br></br>Thank you.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
@@ -202,10 +318,54 @@
 </footer>
 <script src="/fa17g01/assets/js/jquery.min.js"></script>
 <script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 <script>
-    function goBack() {
-        window.history.back();
-    }
+    $(document).ready(function () {
+
+        $('#logIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+            }
+        });
+
+        $('#signIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+                password2: {
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            }
+        });
+
+        $('#agree').change(function () {
+            if (this.checked) {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+            else {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+        });
+    });
+
 </script>
 </body>
 

@@ -22,4 +22,18 @@ router.get('/', function(req, res, next) {
 router.post('/',
     passport.authenticate('local-login', { successRedirect: '/fa17g01/', failureRedirect: '/fa17g01/login' }));
 
+    router.post('/:house_id',
+        function(req, res, next) {
+          passport.authenticate('local-login', function(err, user, info) {
+          var house_id = req.params.house_id;
+            if (err) { return next(err); }
+            if (!user) { return res.redirect('/fa17g01/house/'+house_id); }
+            req.logIn(user, function(err) {
+              if (err) { return next(err); }
+
+              return res.redirect('/fa17g01/house/'+house_id);
+            });
+          })(req, res, next);
+          });
+
 module.exports = router;

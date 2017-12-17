@@ -9,7 +9,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-111266925-1');
@@ -91,18 +95,20 @@
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                                 type="button">City <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
-                            <%if (cities) { for(var j = 0; j<cities.length; j++){%>
-                            <li role="presentation"><a href="/fa17g01/search?word=<%=cities[j].city%>"><%=cities[j].city%></a></li>
-                            <%}}%>
+                            <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                            <li role="presentation"><a
+                                        href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a></li>
+                            <% }} %>
                         </ul>
                     </div>
                     <div class="dropdown btn-group" role="group">
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
                                 type="button">Zip code<span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
-                            <%if (zips) { for(var i = 0; i<zips.length; i++){%>
-                            <li role="presentation"><a href="/fa17g01/search?word=<%=zips[i].zip%>"><%=zips[i].zip%></a></li>
-                            <%}}%>
+                            <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                            <li role="presentation"><a
+                                        href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a></li>
+                            <% }} %>
                         </ul>
                     </div>
                 </div>

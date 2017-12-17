@@ -2,143 +2,168 @@
 
 <html>
 <head>
-  <title>About Unlock</title>
-  <meta charset="utf-8">
+    <title>About Unlock</title>
+    <meta charset="utf-8">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-111266925-1');
     </script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
-  <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
-  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Contact-Form-Clean.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/dannyStyle.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Navigation-Clean1.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Footer.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+    <!-- Bootstrap CSS -->
 
 </head>
 <body>
-  <div>
-      <div class="disclaimer" style="background-color:#43c59e;height:24px;">
-          <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-              CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
-      </div>
-
-      <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
-          <div class="container">
-              <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/" style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock  </a>
-                  <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-              </div>
-              <div class="collapse navbar-collapse  col-sm-9 col-md-9" id="navcol-1">
-                  <form class="navbar-form" action="/fa17g01/search">
-                      <div class="input-group">
-                          <div class="input-group-btn">
-                              <div class="dropdown btn-group" role="group">
-                                  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                          aria-expanded="false"
-                                          type="button">City <span class="caret"></span></button>
-                                  <ul class="dropdown-menu" role="menu">
-                                      <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
-                                      <li role="presentation"><a
-                                                  href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a>
-                                      </li>
-                                      <% }} %>
-                                  </ul>
-                              </div>
-                              <div class="dropdown btn-group" role="group">
-                                  <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                                          aria-expanded="false"
-                                          type="button">Zip code<span class="caret"></span></button>
-                                  <ul class="dropdown-menu" role="menu">
-                                      <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
-                                      <li role="presentation"><a
-                                                  href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a>
-                                      </li>
-                                      <% }} %>
-                                  </ul>
-                              </div>
-                          </div>
-                          <input class="form-control search bar" type="text" placeholder="City, zip, street"
-                                 maxlength="40"
-                                 name="word">
-                          <div class="input-group-btn">
-                              <button class="btn btn-success" type="submit">Search</button>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-              <div class="collapse navbar-collapse" id="navcol-1">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
-                              us</a></li>
-
-                      <% if ( user.username) { %>
-                      <% if ( user.isAgent ) { %>
-                      <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
-                      </li>
-                      <% } %>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
-                              Hi <%= user.username %>
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
-                          </div>
-                      </li>
-                      <% } else { %>
-                      <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
-                              in</a></li>
-                      <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
-                                                 style="color:#ffffff;">Sign Up</a></li>
-                      <% } %>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </div>
-  <div class="container">
-  
-    <main role="main">
-      <div>
-        <h1></br></h1>
-        <h1>About us</h1>
-      </div>
-      <div>
-        <div>Team lead:</div>
-        <a href="Sannuj"><button type="button" class="btn btn-info">Sannuj Singhal</button></a>
-        <div>Front end lead:</div>
-        <a href="Joseph"><button type="button" class="btn btn-info">Joseph Wibowo</button></a>
-        <div>Back end lead:</div>
-        <a href="Paul"><button type="button" class="btn btn-info">Paul Fontaine</button></a>
-        <div>Team front end</div>
-        <a href="Danny"><button type="button" class="btn btn-info">Danny Herrera</button></a>
-        <div>Team back end</div>
-        <a href="Chetan"><button type="button" class="btn btn-info">Johal Gurchetan</button></a>
-        <div>Team back end 2</div>
-        <a href="Steven"><button type="button" class="btn btn-info">Steven Huynh</button></a>
-      </div>
-    </main>
+<div>
+    <div class="disclaimer" style="background-color:#43c59e;height:24px;">
+        <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
+            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
 
+    <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="/fa17g01/"
+                                          style="color:#ffffff;font-family:Cookie, cursive;line-height:19px;font-size:33px;font-weight:normal;">Unlock </a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse  col-sm-9 col-md-9" id="navcol-1">
+                <form class="navbar-form" action="/fa17g01/search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">City <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">Zip code<span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                               maxlength="40"
+                               name="word">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
+                            us</a></li>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+                    <% if ( user.username) { %>
+                    <% if ( user.isAgent ) { %>
+                    <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
+                    </li>
+                    <% } %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                            Hi <%= user.username %>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
+                        </div>
+                    </li>
+                    <% } else { %>
+                    <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
+                            in</a></li>
+                    <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
+                                               style="color:#ffffff;">Sign Up</a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container">
+
+    <main role="main">
+        <div>
+            <h1></br></h1>
+            <h1>About us</h1>
+        </div>
+        <div>
+            <div>Team lead:</div>
+            <a href="Sannuj">
+                <button type="button" class="btn btn-info">Sannuj Singhal</button>
+            </a>
+            <div>Front end lead:</div>
+            <a href="Joseph">
+                <button type="button" class="btn btn-info">Joseph Wibowo</button>
+            </a>
+            <div>Back end lead:</div>
+            <a href="Paul">
+                <button type="button" class="btn btn-info">Paul Fontaine</button>
+            </a>
+            <div>Team front end</div>
+            <a href="Danny">
+                <button type="button" class="btn btn-info">Danny Herrera</button>
+            </a>
+            <div>Team back end</div>
+            <a href="Chetan">
+                <button type="button" class="btn btn-info">Johal Gurchetan</button>
+            </a>
+            <div>Team back end 2</div>
+            <a href="Steven">
+                <button type="button" class="btn btn-info">Steven Huynh</button>
+            </a>
+        </div>
+    </main>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
 </body>
 </html>
