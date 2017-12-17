@@ -123,8 +123,8 @@
 							<div class="image"><img src="<%= source %>"/></div>
 								<figcaption>
 								<div><form method="post" action="/fa17g01/house/<%=houses[i].house_id%>/delete/">
-											<button type="submit" class="btn btn-danger">Delete</button></form></div>
-									<h4><%= houses[i].price %></h4>
+											<button type="submit" class="delete">Delete</button></form></div>
+									<h4>$<%= houses[i].price %></h4>
 									<p>
 										<%= houses[i].street %>, <%= houses[i].zip %> <%= houses[i].city %>    
 									</p>

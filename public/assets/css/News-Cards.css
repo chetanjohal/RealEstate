@@ -11,7 +11,7 @@
   position:relative;
   text-align:left;
   width:100%;
-  height: 267px;
+  height: 250px;
 }
 
 .snip1527 * {
@@ -41,9 +41,8 @@
   bottom:0;
   left:0;
   right:0;
-  background:rgba(0,0,0,0.5);
+  background: #43c59e;
   content:'';
-  opacity:0.8;
   z-index:-1;
 }
 
