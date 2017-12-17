@@ -106,7 +106,7 @@ router.post('/:house_id/delete', function (req, res, next) {
     //var password = req.body.password;
 
     console.log("%s wants to delete %s !", user_id, house_id);
-    res.send("%s wants to delete %s !", user_id, house_id);
+    //res.send("%s wants to delete %s !", user_id, house_id);
     var mysql = require('mysql');
     var connection = mysql.createConnection({
         host: "localhost",
@@ -121,7 +121,7 @@ router.post('/:house_id/delete', function (req, res, next) {
         var sql = "delete from houses where house_id=" + house_id;
         connection.query(sql, function (err, result, fields) {
             //res.render('results.ejs', {word: word, result: result});
-            res.send(result);
+            res.redirect("/fa17g01/agent/");
         });
     });
 });

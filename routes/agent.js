@@ -18,9 +18,12 @@ router.get('/', function (req, res, next) {
             });
             var sqlZip = "SELECT DISTINCT zip from houses";
             var sqlCity = "SELECT DISTINCT city from houses";
+            var sqlHouse = "SELECT * FROM houses h, users u WHERE u.username = '" + user.username + "' AND h.agent_id = u.user_id;";
             connection.query(sqlCity, function (err, cities) {
                 connection.query(sqlZip, function (err, zips) {
-                    res.render('agents', {user, cities, zips});
+                    connection.query(sqlHouse, function (err, houses) {
+                        res.render('agents', {user, cities, zips, houses});
+                    })
                 })
             });
         }

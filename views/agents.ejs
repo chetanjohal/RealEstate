@@ -112,6 +112,15 @@
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
                     <p>Houses listed by an agent</p>
+                    <%for(var i = 0; i < houses.length; i++) {%>
+
+                    <h3><%=houses[i].street%></h3>
+                    <h3><%=houses[i].city%></h3>
+                    <form method="post" action="/fa17g01/house/<%=houses[i].house_id%>/delete/">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+
+                    <%}%>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
                     <p>New listing creation form</p>
