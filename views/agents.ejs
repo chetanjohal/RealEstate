@@ -116,85 +116,23 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="tab-1">
-                        <figure class="snip1527">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
-  <figcaption>
-    <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
-  <figcaption>
-    <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
-  <figcaption>
-  <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
-  <figcaption>
-   <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527 hover">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
-  <figcaption>
-    <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-   <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527 hover">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
-  <figcaption>
-    <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
-   <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
-<figure class="snip1527">
-  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg" alt="pr-sample25" /></div>
-  <figcaption>
-  <div class="delete"><span>Delete</span></div>
-    <h4>1234 el camino real</h4>
-    <p>
-        house 1 details        
-    </p>
-  </figcaption>
-  <a href="#"></a>
-</figure>
+                       <% if(result.length != 0){
+						for(var i = 0; i < result.length; i++){
+						%>
+                <% var source = "data:image/png;base64," + result[i].img; %>
+                <% var hrefHouseId = "/fa17g01/house/" + result[i].house_id; %>
+				<figure class="snip1527">
+					<div class="image"><img src="<%= source %>"/></div>
+						<figcaption>
+							<div class="delete"><span>Delete</span></div>
+								<h4>$<%= result[i].price %></h4>
+								<p>
+									<%= result[i].street %>, <%= result[i].zip %> <%= result[i].city %>    
+								</p>
+						</figcaption>
+					<a href="<%= hrefHouseId %>"></a>
+				</figure>
+				<% }} %>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="tab-2">
                         <p>Content for tab 2.</p>
