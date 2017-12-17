@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+	<link rel="stylesheet" href="assets/css/News-Cards.css">
+	<meta charset="UTF-8">
+	<title>Pure css popup box</title>
+	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 </head>
 
 <body>
@@ -103,32 +107,125 @@
     </nav>
 </div>
 <div>
-    <div class="container inbox">
-        <div>
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Houses listed</a></li>
-                <li><a href="#tab-2" role="tab" data-toggle="tab">New listing House</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" role="tabpanel" id="tab-1">
-                    <p>Houses listed by an agent</p>
-                    <%for(var i = 0; i < houses.length; i++) {%>
-
-                    <h3><%=houses[i].street%></h3>
-                    <h3><%=houses[i].city%></h3>
-                    <form method="post" action="/fa17g01/house/<%=houses[i].house_id%>/delete/">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-
-                    <%}%>
-                </div>
-                <div class="tab-pane" role="tabpanel" id="tab-2">
-                    <p>New listing creation form</p>
+    <div>
+        <div class="container inbox">
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">House Listing</a></li>
+                    <li><a href="#tab-2" role="tab" data-toggle="tab">Add new house</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="tab-1">
+                        <figure class="snip1527">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
+  <figcaption>
+    <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
+  <figcaption>
+    <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
+  <figcaption>
+  <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample23.jpg" alt="pr-sample23" /></div>
+  <figcaption>
+   <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527 hover">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
+  <figcaption>
+    <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
+   <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527 hover">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample24.jpg" alt="pr-sample24" /></div>
+  <figcaption>
+    <div class="date"><span class="day">17</span><span class="month">Nov</span></div>
+   <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+<figure class="snip1527">
+  <div class="image"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/pr-sample25.jpg" alt="pr-sample25" /></div>
+  <figcaption>
+  <div class="delete"><span>Delete</span></div>
+    <h4>1234 el camino real</h4>
+    <p>
+        house 1 details        
+    </p>
+  </figcaption>
+  <a href="#"></a>
+</figure>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="tab-2">
+                        <p>Content for tab 2.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Street">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="ZIP code">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Price">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Description">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Bedrooms">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Baths">
+                            </div>
+                            <div class="col-md-6">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Backyard">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Pool">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="AC">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Publish Date">
+                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Year">
+                                <button class="btn btn-default" type="button" style="margin-top:5px;margin-bottom:20px;">Upload picture</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-default" type="button">Add new house</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 <footer style="background-color:#003459;padding-top:55px;margin-top:-22px;padding-left:40px;">
     <div class="container">
         <div class="row">
