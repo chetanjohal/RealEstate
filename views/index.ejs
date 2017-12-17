@@ -85,43 +85,20 @@
 
     <div class="jumbotron" style="padding-top:0px;margin-top:-110px;">
         <h1 style="font-size:59px;font-family:Cookie, sans-serif;color:#ffffff;line-height:54px;text-shadow: 2px 2px 4px #000000;">
-				Home is where the heartis </h1>
+				Home is where the heart is </h1>
         <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;font-weight:bold;text-shadow: 2px 2px 4px #000000;">Let us help you unlock your dream home</p>
         <form class="search-form" action="/fa17g01/search">
             <div class="input-group">
-                <div class="input-group-btn">
-                    <div class="dropdown btn-group" role="group">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-                                type="button">City <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu">
-                            <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
-                            <li role="presentation"><a
-                                        href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a></li>
-                            <% }} %>
-                        </ul>
-                    </div>
-                    <div class="dropdown btn-group" role="group">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-                                type="button">Zip code<span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu">
-                            <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
-                            <li role="presentation"><a
-                                        href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a></li>
-                            <% }} %>
-                        </ul>
-                    </div>
-                </div>
-                <input class="form-control search bar" type="text" placeholder="Please enter city name or zip-code" maxlength="40"
-                       name="word">
-                <div class="input-group-btn">
-                    <button class="btn btn-success" type="submit">Search</button>
-                </div>
+               
+				<div class="input-group-addon"><span><i class="glyphicon glyphicon-search"></i></span></div>               
+                <input class="form-control search bar" type="text" placeholder="Please enter city name or zip-code" maxlength="40"name="word">
+                <div class="input-group-btn"><button class="btn btn-success" type="submit">Search</button></div>
 				
             </div>
         </form>
 		<div class="container">
-                <h3 style="color:#ffffff;margin-top:-15px;">or browse house by </h3>
-                <div class="btn-group" role="group">
+                <h3 style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;font-weight:bold;text-shadow: 2px 2px 4px #000000;;margin-top:-15px;">or browse house by </h3>
+                <div class="input-btn-group" role="group">
                     <div class="dropdown btn-group" role="group">
                         <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">City <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
