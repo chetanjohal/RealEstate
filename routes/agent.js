@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     var sqlCity = "SELECT DISTINCT city from houses";
     connection.query(sqlCity, function (err, cities) {
         connection.query(sqlZip, function (err, zips) {
-            res.render('agents', {user}, cities, zips);
+            res.render('agents', {user, cities, zips});
         })
     });
 });

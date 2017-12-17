@@ -2,45 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="381fda79-08d6-41d4-afef-b57577480e28" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/about.js" afterPath="$PROJECT_DIR$/routes/about.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/agent.js" afterPath="$PROJECT_DIR$/routes/agent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/client.js" afterPath="$PROJECT_DIR$/routes/client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/house.js" afterPath="$PROJECT_DIR$/routes/house.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/login.js" afterPath="$PROJECT_DIR$/routes/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/logout.js" afterPath="$PROJECT_DIR$/routes/logout.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/middleware.js" afterPath="$PROJECT_DIR$/routes/middleware.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/register.js" afterPath="$PROJECT_DIR$/routes/register.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.ejs" afterPath="$PROJECT_DIR$/views/about.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutChetan.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutChetan.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutDanny.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutDanny.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutJoseph.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutJoseph.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutPaul.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutPaul.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutSannuj.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutSannuj.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/abouts/aboutSteven.ejs" afterPath="$PROJECT_DIR$/views/abouts/aboutSteven.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/error.ejs" afterPath="$PROJECT_DIR$/views/error.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/house.ejs" afterPath="$PROJECT_DIR$/views/house.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.ejs" afterPath="$PROJECT_DIR$/views/index.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/login.ejs" afterPath="$PROJECT_DIR$/views/login.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/partials/header.ejs" afterPath="$PROJECT_DIR$/views/partials/header.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/registration.ejs" afterPath="$PROJECT_DIR$/views/registration.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/bootstrap/fonts/glyphicons-halflings-regular.svg" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Contact-Form-Clean.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Contact-Form-Clean.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Login-Form-Clean.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Login-Form-Clean.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Navigation-Clean1.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Navigation-Clean1.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Pretty-Footer.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Pretty-Footer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Pretty-Search-Form.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Pretty-Search-Form.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Registration-Form-with-Photo.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/Registration-Form-with-Photo.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/dannyStyle.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/dannyStyle.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/styles.css" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/css/styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/assets/fonts/fontawesome-webfont.svg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/home.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house1details.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house1details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house2details.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house2details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house3details.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/house3details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/inbox.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/inbox.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/login.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/registration.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/registration.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/search.html" afterPath="$PROJECT_DIR$/views/testfrontpagehtmlfiles/search.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -74,7 +36,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="house.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="house.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/house.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="203">
@@ -152,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="agent.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="agent.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/agent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
+            <state relative-caret-position="131">
+              <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -184,6 +146,8 @@
       <find>client</find>
       <find>username</find>
       <find>signUp</find>
+      <find>i like</find>
+      <find>res.render</find>
     </findStrings>
     <replaceStrings>
       <replace>/fa17g01/agents/</replace>
@@ -193,6 +157,7 @@
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/views</dir>
+      <dir>$PROJECT_DIR$/routes</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -224,7 +189,6 @@
         <option value="$PROJECT_DIR$/views/agents.ejs" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/routes/client.js" />
-        <option value="$PROJECT_DIR$/routes/agent.js" />
         <option value="$PROJECT_DIR$/routes/about.js" />
         <option value="$PROJECT_DIR$/views/registration.ejs" />
         <option value="$PROJECT_DIR$/routes/house.js" />
@@ -232,6 +196,7 @@
         <option value="$PROJECT_DIR$/routes/register.js" />
         <option value="$PROJECT_DIR$/routes/logout.js" />
         <option value="$PROJECT_DIR$/views/house.ejs" />
+        <option value="$PROJECT_DIR$/routes/agent.js" />
       </list>
     </option>
   </component>
@@ -382,12 +347,12 @@
       <workItem from="1513297012094" duration="13507000" />
       <workItem from="1513316424043" duration="1250000" />
       <workItem from="1513384204045" duration="113000" />
-      <workItem from="1513473292081" duration="7086000" />
+      <workItem from="1513473292081" duration="7356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40724000" />
+    <option name="totallyTimeSpent" value="40994000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -400,7 +365,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="833" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16138126" sideWeight="0.7758621" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -408,7 +372,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16138126" sideWeight="0.22413793" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38482386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38482386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20731707" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -727,14 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/agent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="11" column="33" lean-forward="false" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/about.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -812,6 +768,14 @@
             <element signature="e#15650#15657#1#HTML" expanded="true" />
             <marker date="1513481742652" expanded="false" signature="6722:6775" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/agent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="22" column="53" lean-forward="false" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
+          <folding />
         </state>
       </provider>
     </entry>
