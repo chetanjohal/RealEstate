@@ -25,15 +25,20 @@ router.get('/', function (req, res, next) {
         var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%' OR zip LIKE '%" + word + "%'";
         var sqlZip = "SELECT DISTINCT zip from houses";
         var sqlCity = "SELECT DISTINCT city from houses";
+        var noResult;
         connection.query(sqlCity, function (err, cities) {
             connection.query(sqlZip, function (err, zips) {
                 connection.query(sql, function (err, results) {
-                    if (results.length > 0) {
-                        res.render('results', {word: word, result: results, user, cities, zips});
+                    //if results
+                    if (results.length > 0 && word !="") {
+                        noResult = 0;
+                        res.render('results', {word: word, result: results, user, cities, zips, noResult});
                     }
+                    //if no results
                     else {
+                        noResult = 1;
                         connection.query("SELECT * FROM houses", function (err, results2) {
-                            res.render('results', {word: word, result: results2, user, cities, zips});
+                            res.render('results', {word: word, result: results2, user, cities, zips, noResult});
                         })
                     }
                 });

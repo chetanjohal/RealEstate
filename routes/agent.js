@@ -8,21 +8,27 @@ router.get('/', function (req, res, next) {
         user.username = req.user.username;
         user.email = req.user.email;
         user.isAgent = req.user.is_agent;
+        if(user.isAgent) {
+            var mysql = require('mysql');
+            var connection = mysql.createConnection({
+                host: "localhost",
+                user: "fa17g01",
+                password: "csc648fa17g01",
+                database: "fa17g01"
+            });
+            var sqlZip = "SELECT DISTINCT zip from houses";
+            var sqlCity = "SELECT DISTINCT city from houses";
+            connection.query(sqlCity, function (err, cities) {
+                connection.query(sqlZip, function (err, zips) {
+                    res.render('agents', {user, cities, zips});
+                })
+            });
+        }
     }
-    var mysql = require('mysql');
-    var connection = mysql.createConnection({
-        host: "localhost",
-        user: "fa17g01",
-        password: "csc648fa17g01",
-        database: "fa17g01"
-    });
-    var sqlZip = "SELECT DISTINCT zip from houses";
-    var sqlCity = "SELECT DISTINCT city from houses";
-    connection.query(sqlCity, function (err, cities) {
-        connection.query(sqlZip, function (err, zips) {
-            res.render('agents', {user, cities, zips});
-        })
-    });
+    else{
+        res.redirect('/fa17g01/login/');
+    }
+
 });
 
 
