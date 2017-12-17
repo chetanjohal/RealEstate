@@ -38,7 +38,7 @@
 <div>
     <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
+            SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -126,8 +126,8 @@
             <h1>Found <%= result.length %> results for <%= word %>:</h1>
             <%}%>
         </div>
-        <div class="row" style="padding-bottom:0;">
-            <div class="col-md-6">
+        <div style="margin-top:37px;margin-bottom:100px;">
+            <div class="container">
                 <% if(result.length != 0){
                 for(var i = 0; i < result.length ; i++){
                 %>
@@ -136,7 +136,7 @@
 
                 <div class="row search results">
                     <div class="col-md-4" style="margin:auto;padding:auto;height:auto;">
-                        <img src="<%= source %>" class="thumbnail house" style="margin-left:-11px;margin-top:22px;">
+                        <img src="<%= source %>" class="thumbnail house" style="margin-left:61px;margin-top:13px;width:227px;">
                     </div>
                     <a target="_blank" href="<%= hrefHouseId %>">
                         <div class="col-md-8 col-md-offset-0">
@@ -148,8 +148,7 @@
                 </div>
                 <% }} %>
             </div>
-            <div class="col-md-6"><img class="img-responsive" src="assets/img/O2EOCxf.png"
-                                       style="width:595px;height:378px;margin-left:-10px;"></div>
+            
         </div>
     </div>
 </div>
