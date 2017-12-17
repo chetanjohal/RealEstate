@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
         user.email = req.user.email;
         user.isAgent = req.user.is_agent;
     }
-    res.render('about', user);
+    res.render('about', {user});
 });
 
 /* GET about pages. */

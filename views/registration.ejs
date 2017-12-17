@@ -5,6 +5,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111266925-1');
+    </script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
@@ -22,9 +32,9 @@
 
 <body>
 <div>
-    <div class="disclaimer" style="background-color:#f81717;height:24px;">
+    <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -38,8 +48,6 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
                             us</a></li>
-                    <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a>
-                    </li>
                     <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
                             in</a></li>
                     <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
@@ -54,19 +62,21 @@
     <div class="form-container">
         <div class="image-holder"
              style="background-image:url(&quot;/fa17g01/assets/img/bigstock-Happy-Young-Couple-Moving-Hous-13676345.jpg&quot;);background-size:cover;background-repeat:no-repeat;background-position:top;"></div>
-        <form action="/fa17g01/registration/" method="post">
+        <form action="/fa17g01/registration/" method="post" id="signIn">
             <h2 class="text-center"><strong>Create</strong> an account.</h2>
             <div class="form-group">
-                <input class="form-control username-input" type="text" name="username" placeholder="Username">
+                <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input class="form-control email-input" type="text" name="email" placeholder="Email">
+                <input class="form-control email-input" type="email" name="email" id="email" placeholder="Email"
+                       required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
+                <input class="form-control" type="password" name="password" id="password" placeholder="Password" required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password-repeat" placeholder="Password (repeat)">
+                <input class="form-control" type="password" name="password2" id="password2" placeholder="Password (repeat)"
+                       required>
             </div>
             <div class="form-check">
                 <label class="form-check-label">
@@ -82,12 +92,13 @@
             </div>
             <div class="form-group">
                 <div class="checkbox">
-                    <label  class="control-label">
+                    <label class="control-label">
                         <input type="checkbox" id="agree">I agree to the license terms.</label>
                 </div>
             </div>
             <div class="form-group">
-                <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;" disabled>Sign Up
+                <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;"
+                        disabled>Sign Up
                 </button>
             </div>
             <a href="/fa17g01/login" class="already">You already have an account? Login here.</a></form>
@@ -125,17 +136,57 @@
 </footer>
 <script src="/fa17g01/assets/js/jquery.min.js"></script>
 <script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+
 <script>
-    $('#agree').change(function(){
-        console.log("change");
-        if(this.checked){
-            document.getElementById('signUp').disabled = !this.checked;
-            console.log("checked");
-        }
-        else{
-            document.getElementById('signUp').disabled = !this.checked;
-        }
+
+    $(document).ready(function () {
+        $('#signIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+                password2: {
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            }
+        });
+
+        $('#agree').change(function () {
+            if (this.checked) {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+            else {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+        });
+
     });
+
+    /*function validateEmail() {
+        var emailID = $("#email").val();
+        console.log(emailID);
+        var atpos = emailID.indexOf("@");
+        var dotpos = emailID.lastIndexOf(".");
+
+        if (atpos < 1 || ( dotpos - atpos < 2 )) {
+            alert("Please enter correct email ID")
+            $("email").focus();
+            return false;
+        }
+        return ( true );
+    }*/
 </script>
 </body>
 

@@ -67,8 +67,8 @@ module.exports = function (passport) {
                     insertClient(insertQuery)
                         .then(() => {
                             connection.query("SELECT * FROM `users` WHERE `username` = '" + newUserMysql.username + "'", function (err, rows) {
-                                console.log("rows:");
-                                console.log(rows);
+                               // console.log("rows:");
+                                //console.log(rows);
                                 newUserMysql.user_id = rows[0]['user_id'];
                                 console.log(newUserMysql);
                                 return done(null, newUserMysql);
@@ -80,14 +80,14 @@ module.exports = function (passport) {
 
 
     function insertClient(insertQuery) {
-        console.log(insertQuery);
+        //console.log(insertQuery);
         connection.query(insertQuery, function (err, rows) {
             if (err) {
                 //throw err;
                 deferred.reject(err);
             }
             else {
-                //console.log(rows);
+                console.log("User created in DB");
                 deferred.resolve(rows);
             }
         });
@@ -104,8 +104,8 @@ module.exports = function (passport) {
         function (username, password, done) {
             console.log("local-login");
             connection.query("SELECT * FROM `users` WHERE `username` = '" + username + "'", function (err, rows) {
-                console.log(rows);
-                console.log("above row object");
+                //console.log(rows);
+                //console.log("above row object");
                 if (err)
                     return done(err);
                 if (!rows.length) {

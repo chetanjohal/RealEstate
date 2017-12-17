@@ -41,7 +41,7 @@
 
                     <% if ( user.username) { %>
                     <% if ( user.isAgent ) { %>
-                    <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
+                    <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
                     </li>
                     <% } %>
                     <li class="nav-item dropdown">
@@ -72,19 +72,19 @@
     <div class="container inbox">
         <div>
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">House Listing</a></li>
-                <li><a href="#tab-2" role="tab" data-toggle="tab">Edit House</a></li>
-                <li><a href="#tab-3" role="tab" data-toggle="tab">Buyer message</a></li>
+                <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">Houses listed</a></li>
+                <li><a href="#tab-2" role="tab" data-toggle="tab">Messages</a></li>
+                <li><a href="#tab-3" role="tab" data-toggle="tab">New listing House</a></li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" role="tabpanel" id="tab-1">
-                    <p>will put all the house the agent listed</p>
+                    <p>Houses listed by an agent</p>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-2">
-                    <p>will put edit house menu.</p>
+                    <p>List of all likes from client</p>
                 </div>
                 <div class="tab-pane" role="tabpanel" id="tab-3">
-                    <p>messages from buyer.</p>
+                    <p>New listing creation form</p>
                 </div>
             </div>
         </div>

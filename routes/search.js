@@ -22,9 +22,16 @@ router.get('/', function (req, res, next) {
         if (err) throw err;
         console.log("Connected!");
 
-        var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%'";
-        connection.query(sql, function (err, result, fields) {
-            res.render('results', {word: word, result: result, user});
+        var sql = "SELECT * FROM houses WHERE city LIKE '%" + word + "%' OR zip LIKE '%" + word + "%'";
+        connection.query(sql, function (err, results) {
+            if (results.length > 0) {
+                res.render('results', {word: word, result: results, user});
+            }
+            else {
+                connection.query("SELECT * FROM houses", function (err, results2) {
+                    res.render('results', {word: word, result: results2, user});
+                })
+            }
         });
     });
 });

@@ -4,7 +4,7 @@ var router = express.Router();
 router.get('/', function (req, res, next) {
     //res.render('index.ejs');
     var user = new Object();// = {username: "null", isAgent: 0, email: 0};
-    if(req.user != null){
+    if (req.user != null) {
         user.username = req.user.username;
         user.email = req.user.email;
         user.isAgent = req.user.is_agent;
@@ -19,22 +19,17 @@ router.get('/', function (req, res, next) {
     });
     connection.connect(function (err) {
         if (err) throw err;
-        var sql = "select * from houses order by rand() limit 3";
-        connection.query(sql, function (err, result, fields) {
-            res.render('index.ejs', {result: result, user});
-            //res.render('index.ejs');
+        var sqlFeatures = "select * from houses order by rand() limit 3";
+        var sqlZip = "SELECT DISTINCT zip from houses";
+        var sqlCity = "SELECT DISTINCT city from houses";
+        connection.query(sqlFeatures, function (err, result) {
+            connection.query(sqlCity, function (err, cities) {
+                connection.query(sqlZip, function (err, zips) {
+                    res.render('index.ejs', {result: result, user, zips, cities});
+                })
+            })
         });
     });
-});
-
-router.get('/agents', function (req, res, next) {
-    var user = new Object();// = {username: "null", isAgent: 0, email: 0};
-    if(req.user != null){
-        user.username = req.user.username;
-        user.email = req.user.email;
-        user.isAgent = req.user.is_agent;
-    }
-    res.render('agents', {user});
 });
 
 

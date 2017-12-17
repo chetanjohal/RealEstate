@@ -4,7 +4,17 @@
 <head>
   <title>About Unlock</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111266925-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
@@ -23,8 +33,9 @@
 </head>
 <body>
   <div>
-      <div class="disclaimer" style="background-color:#f81717;height:24px;">
-          <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+      <div class="disclaimer" style="background-color:#43c59e;height:24px;">
+          <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
+              CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
       </div>
       <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
           <div class="container">
@@ -33,10 +44,29 @@
               </div>
               <div class="collapse navbar-collapse" id="navcol-1">
                   <ul class="nav navbar-nav navbar-right">
-                      <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About us</a></li>
-                      <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a></li>
-                      <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log in</a></li>
-                      <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu" style="color:#ffffff;">Sign Up</a></li>
+                      <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
+                              us</a></li>
+
+                      <% if ( user.username) { %>
+                      <% if ( user.isAgent ) { %>
+                      <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
+                      </li>
+                      <% } %>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                              Hi <%= user.username %>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="/fa17g01/logout/">Logout</a>
+                          </div>
+                      </li>
+                      <% } else { %>
+                      <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
+                              in</a></li>
+                      <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
+                                                 style="color:#ffffff;">Sign Up</a></li>
+                      <% } %>
                   </ul>
               </div>
           </div>

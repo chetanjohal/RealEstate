@@ -1,6 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
+
+router.get('/', function (req, res, next) {
+    var user = new Object();// = {username: "null", isAgent: 0, email: 0};
+    if (req.user != null) {
+        user.username = req.user.username;
+        user.email = req.user.email;
+        user.isAgent = req.user.is_agent;
+    }
+    res.render('agents', {user});
+
+});
+
+
 router.post('/new', function(req, res, next) {
   var username =   req.body.username ;
   var fname =   req.body.fname ;
