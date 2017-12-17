@@ -116,7 +116,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="tab-1">
-                       <% if(houses.length != 0){
+                       <% 
 						for(var i = 0; i < houses.length; i++){
 						%>
 						<% var source = "data:image/png;base64," + houses[i].img; %>
@@ -132,7 +132,7 @@
 							</figcaption>
 							<a href="<%= hrefHouseId %>"></a>
 						</figure>
-						<% }} %>
+						<% } %>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="tab-2">
                         <p>Content for tab 2.</p>
