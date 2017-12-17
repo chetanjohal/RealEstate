@@ -16,13 +16,14 @@
 }
 
 #promo .jumbotron {
-  border-radius:20px;
-  padding:35px;
-  background-color:rgba(83,131,211,0.1);
-  max-width:800px;
-  background-position:top;
-  margin-bottom:-30px;
-  margin:0 auto;
+ border-radius: 20px;
+padding: 35px;
+background-color: rgba(83,131,211,0.1);
+max-width: 800px;
+background-position: top;
+margin-bottom: -30px;
+margin-top: -16px;
+margin: 0 auto;
 }
 
 .active.nav.menu:hover {
