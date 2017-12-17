@@ -41,7 +41,7 @@
 <div>
     <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
+            SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -54,7 +54,7 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
-                            us</a></li>
+                            Us</a></li>
 
                     <% if ( user.username) { %>
                     <% if ( user.isAgent ) { %>
@@ -72,7 +72,7 @@
                     </li>
                     <% } else { %>
                     <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
-                            in</a></li>
+                            In</a></li>
                     <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
                                                style="color:#ffffff;">Sign Up</a></li>
                     <% } %>
@@ -84,10 +84,9 @@
 <div id="promo" style="margin-top:-3px; padding-bottom:107px;">
 
     <div class="jumbotron" style="padding-top:0px;margin-top:-110px;">
-        <h1 style="font-size:43px;font-family:Rubik, sans-serif;color:#ffffff;line-height:54px;">Home is where the heart
-            is </h1>
-        <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;">let us help you to unlock the house where
-            you can call home</p>
+        <h1 style="font-size:59px;font-family:Cookie, sans-serif;color:#ffffff;line-height:54px;text-shadow: 2px 2px 4px #000000;">
+				Home is where the heartis </h1>
+        <p style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;font-weight:bold;text-shadow: 2px 2px 4px #000000;">Let us help you unlock your dream home</p>
         <form class="search-form" action="/fa17g01/search">
             <div class="input-group">
                 <div class="input-group-btn">
@@ -112,18 +111,43 @@
                         </ul>
                     </div>
                 </div>
-                <input class="form-control search bar" type="text" placeholder="City, zip, street" maxlength="40"
+                <input class="form-control search bar" type="text" placeholder="Please enter city name or zip-code" maxlength="40"
                        name="word">
                 <div class="input-group-btn">
                     <button class="btn btn-success" type="submit">Search</button>
                 </div>
+				
             </div>
         </form>
+		<div class="container">
+                <h3 style="color:#ffffff;margin-top:-15px;">or browse house by </h3>
+                <div class="btn-group" role="group">
+                    <div class="dropdown btn-group" role="group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">City <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                             <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                            <li role="presentation">
+							<a
+                                 href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a></li>
+                            <% }} %>
+                        </ul>
+                    </div>
+                    <div class="dropdown btn-group" role="group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Zipcode <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                            <li role="presentation"><a
+                                  href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a></li>
+                            <% }} %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
     </div>
 </div>
 <div class="feature house div">
     <div class="container feature house section" style="font-size:18px;">
-        <h1 style="margin-top:-8px;">Our feature houses</h1>
+        <h1 style="margin-top:-8px;">Our featured houses</h1>
         <p style="font-family:Rubik, sans-serif;">Choose your favorite house</p>
         <div class="row">
             <% var source0 = "data:image/png;base64," + result[0].img; %>
@@ -163,10 +187,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 footer-navigation">
-                <h3><a href="#">Unlock</a></h3>
+                <h3><a href="/fa17g01/">Unlock</a></h3>
                 <p class="links"><a href="home.html">Home</a><strong> · </strong><a
                             href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
-                            href="registration.html"> Sign up</a><strong> </strong></p>
+                            href="/fa17g01/registration/"> Sign-Up</a><strong> </strong></p>
                 <p class="company-name">Unlock © 2017 </p>
             </div>
             <div class="col-md-4 col-sm-6 footer-contacts">
@@ -181,10 +205,8 @@
             <div class="col-md-4 footer-about">
                 <h4>About the company</h4>
                 <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
-                    to creatte a real estate website that provides houses. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-                                class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
-                                class="fa fa-github"></i></a></div>
+                    to create a real estate website that provides houses. </p>
+                
             </div>
         </div>
     </div>
