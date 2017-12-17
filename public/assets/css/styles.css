@@ -3,6 +3,7 @@
   padding:40px;
   padding-top:200px;
   padding-bottom:140px;
+  margin-top:-20px;
   background:url(../../assets/img/cute-top-house-designs-and-architectural-styles-ignite-your-modern-looking-houses-prairie-style-most-minecraft-tiny-how-to-make-in-best-homes-for-sale.jpg) no-repeat;
   background-size:cover;
   background-position:50% 20%;
@@ -15,11 +16,13 @@
 }
 
 #promo .jumbotron {
- border-radius: 20px;
-padding: 35px;
-background-color: rgba(83,131,211,0.1);
-max-width: 800px;
-background-position: top;
+  border-radius:20px;
+  padding:35px;
+  background-color:rgba(83,131,211,0.1);
+  max-width:800px;
+  background-position:top;
+  margin-bottom:-30px;
+  margin:0 auto;
 }
 
 .active.nav.menu:hover {
