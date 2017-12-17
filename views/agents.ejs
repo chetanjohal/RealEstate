@@ -120,7 +120,7 @@
 						<% var source = "data:image/png;base64," + houses[i].img; %>
 						<% var hrefHouseId = "/fa17g01/house/" + houses[i].house_id; %>
 						<figure class="snip1527">
-							<div class="image"><img src="<%= source %>"/></div>
+							<div class="image"><a href="<%= hrefHouseId %>"><img src="<%= source %>"/></a></div>
 								<figcaption>
 								<div><form method="post" action="/fa17g01/house/<%=houses[i].house_id%>/delete/">
 											<button type="submit" class="delete">Delete</button></form></div>
@@ -129,7 +129,7 @@
 										<%= houses[i].street %>, <%= houses[i].zip %> <%= houses[i].city %>    
 									</p>
 							</figcaption>
-							<a href="<%= hrefHouseId %>"></a>
+							
 						</figure>
 						<% } %>
                     </div>
