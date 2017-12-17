@@ -122,7 +122,7 @@
 </div>
 <div style="margin-top:35px;margin-bottom:35px;">
     <div class="container house details"
-         style="padding:20;padding-right:0px;padding-top:21px;padding-bottom:21px;padding-left:9px;width:1018px;">
+         style="padding:20;padding-right:0px;padding-top:21px;padding-bottom:21px;padding-left:9px;width:1025px">
         <div class="row" style="margin-right:-24px;margin-left:0px;">
             <div class="col-md-6">
                 <h1 style="font-size:32px;">$<%= result[0].price %> </h1>
@@ -148,40 +148,40 @@
                 <div class="row"><img src="<%= source %>"
                                       style="background-size:cover;width:457px;background-position:0% 35%;">
                 </div>
-                <div class="row" style="margin-right:0;margin-left:-12px;">
+                <div class="row">
                     <iframe
                             frameborder="0"
                             width="100%" height="100%"
                             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
                             class="map-screen"
-                            style="margin-top: 20px;width:100%; height: 100%;"
+                            style="margin-top:20px;width:457px; height: 100%;"
                             allowfullscreen>
                     </iframe>
                 </div>
+				<div>
+					 <form method="post" style="background-color:#ffffff;width:457px;margin-left:-15px">
+						<div class="form-group">
+							<textarea class="form-control" rows="14" name="message" placeholder="Message" style="height:200px;width:457px;" >Hello! I really like this house, please give me further information about this house please</textarea>
+						</div>
+						<% if ( user.username ) { %>
+						<div class="form-group" style="margin-left:-70px;><a id="contactButton" class="btn btn-primary" role="button"
+                                   style="width:400px;" data-toggle="modal" data-target="#sentModal">Send </a>
+						</div>
+
+						<% } else{ %>
+						<div class="form-group" >
+							<a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal" data-target="#loginModal">Log In </a>
+							<a id="signup" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signinModal">Sign Up </a>
+						</div>
+
+						<% } %>
+					</form>
+				</div>
             </div>
         </div>
     </div>
 </div>
-<div class="contact-clean" style="padding-top:16px;padding-bottom:22px;background-color:#ffffff;">
-    <form method="post" style="background-color:#ffffff;">
-        <h2 class="text-center"> I like this house!</h2>
-        <div class="form-group">
-            <textarea class="form-control" rows="14" name="message" placeholder="Message">Hello! I really like this house, please give me further information about this house please</textarea>
-        </div>
-        <% if ( user.username ) { %>
-        <div class="form-group"><a id="contactButton" class="btn btn-primary" role="button"
-                                   style="width:400px;" data-toggle="modal" data-target="#sentModal">Send </a>
-        </div>
 
-        <% } else{ %>
-        <div class="form-group">
-            <a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal" data-target="#loginModal">Log In </a>
-            <a id="signup" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signinModal">Sign Up </a>
-        </div>
-
-        <% } %>
-    </form>
-</div>
 <!-- Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
