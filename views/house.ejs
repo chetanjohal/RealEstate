@@ -4,7 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title><%= result[0].street %></title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111266925-1');
+    </script>
+
     <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
@@ -22,9 +36,9 @@
 
 <body>
 <div>
-    <div class="disclaimer" style="background-color:#f81717;height:24px;">
+    <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -34,26 +48,77 @@
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
+            <div class="collapse navbar-collapse  col-sm-9 col-md-9" id="navcol-1">
+                <form class="navbar-form" action="/fa17g01/search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">City <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">Zip code<span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                               maxlength="40"
+                               name="word">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
                             us</a></li>
-                    <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a>
+                    <% if ( user.username ) { %>
+                    <% if ( user.isAgent ) { %>
+                    <li role="presentation"><a href="/fa17g01/agent/" class="active nav menu" style="color:#ffffff;">Dashboard</a>
                     </li>
+                    <% } %>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                            Hi <%= user.username %>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/fa17g01/logout/<%=pageId%>/">Logout</a>
+                        </div>
+                    </li>
+                    <% } else { %>
                     <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
                             in</a></li>
                     <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
                                                style="color:#ffffff;">Sign Up</a></li>
+                    <% } %>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
 <div>
-    <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;"><a class="btn btn-info"
-                                                                                            role="button"
-                                                                                            href="/fa17g01/">Go back</a>
-    </div>
+    <!-- <div class="container" style="margin-bottom:-15px;margin-top:9px;margin-right:55px;">
+         <a class="btn btn-info" role="button" onclick="goBack()">Go back</a>
+     </div>-->
 </div>
 <div style="margin-top:35px;margin-bottom:35px;">
     <div class="container house details"
@@ -84,14 +149,14 @@
                                       style="background-size:cover;width:457px;background-position:0% 35%;">
                 </div>
                 <div class="row" style="margin-right:0;margin-left:-12px;">
-                        <iframe
-                                frameborder="0"
-                                width="100%" height="100%"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
-                                class="map-screen"
-                                style="margin-top: 20px;width:100%; height: 100%;"
-                                allowfullscreen>
-                        </iframe>
+                    <iframe
+                            frameborder="0"
+                            width="100%" height="100%"
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
+                            class="map-screen"
+                            style="margin-top: 20px;width:100%; height: 100%;"
+                            allowfullscreen>
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -103,18 +168,132 @@
         <div class="form-group">
             <textarea class="form-control" rows="14" name="message" placeholder="Message">Hello! I really like this house, please give me further information about this house please</textarea>
         </div>
-        <div class="form-group"><a class="btn btn-primary" role="button" href="/fa17g01/registration/"
-                                   style="width:400px;">send </a></div>
+        <% if ( user.username ) { %>
+        <div class="form-group"><a id="contactButton" class="btn btn-primary" role="button"
+                                   style="width:400px;" data-toggle="modal" data-target="#sentModal">Send </a>
+        </div>
+
+        <% } else{ %>
+        <div class="form-group">
+            <a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal" data-target="#loginModal">Log In </a>
+            <a id="signup" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signinModal">Sign Up </a>
+        </div>
+
+        <% } %>
     </form>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/fa17g01/login/<%=pageId%>/" method="post" id="logIn">
+                    <h2 class="text-center"><strong>Login</strong> to your account.</h2>
+                    <div class="form-group">
+                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">Log me in
+                        </button>
+                    </div>
+                    <a href="#" class="already">Forgot your password?click here.</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/fa17g01/registration/<%=pageId%>/" method="post" id="signIn">
+                    <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                    <div class="form-group">
+                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control email-input" type="email" name="email" id="email" placeholder="Email"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" id="password" placeholder="Password"
+                               required>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password2" id="password2"
+                               placeholder="Password (repeat)"
+                               required>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios1" value="0" checked>
+                            Buyer
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios2" value="1">
+                            Seller
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label class="control-label">
+                                <input type="checkbox" id="agree">I agree to the license terms.</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;"
+                                disabled>Sign Up
+                        </button>
+                    </div>
+                    <a href="/fa17g01/login" class="already">You already have an account? Login here.</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Message sent !</h2>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>Your message has been sent!</br></br>The agent in charge of this house will contact you soon on your email address.</br></br>Thank you.</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
     <div class="container">
         <div class="row" style="margin-right:14px;">
             <div class="col-md-4 col-sm-6 footer-navigation">
                 <h3><a href="#">Unlock</a></h3>
                 <p class="links"><a href="/fa17g01/">Home</a><strong> · </strong><a
-                            href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
-                            href="registration.html"> Sign up</a><strong> </strong></p>
+                            href="/fa17g01/about/">About</a><strong> · </strong><a
+                            href="/fa17g01/registration"> Sign up</a><strong> </strong></p>
                 <p class="company-name">Unlock © 2017 </p>
             </div>
             <div class="col-md-4 col-sm-6 footer-contacts">
@@ -129,7 +308,7 @@
             <div class="col-md-4 footer-about">
                 <h4>About the company</h4>
                 <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
-                    to creatte a real estate website that provides houses. </p>
+                    to create a real estate website that provides houses. </p>
                 <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
                                 class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
                                 class="fa fa-github"></i></a></div>
@@ -137,8 +316,57 @@
         </div>
     </div>
 </footer>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/fa17g01/assets/js/jquery.min.js"></script>
+<script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#logIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+            }
+        });
+
+        $('#signIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+                password2: {
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    email: true
+                }
+            }
+        });
+
+        $('#agree').change(function () {
+            if (this.checked) {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+            else {
+                document.getElementById('signUp').disabled = !this.checked;
+            }
+        });
+    });
+
+</script>
 </body>
 
 </html>

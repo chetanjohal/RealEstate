@@ -4,7 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
+    <title>Login</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-111266925-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-111266925-1');
+    </script>
+
     <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
@@ -22,9 +36,9 @@
 
 <body>
 <div>
-    <div class="disclaimer" style="background-color:#f81717;height:24px;">
+    <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            This is a Student project for SFSU CSC 648 section 2 - team 1</p>
+            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -34,12 +48,48 @@
                             class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span></button>
             </div>
+            <div class="collapse navbar-collapse  col-sm-9 col-md-9" id="navcol-1">
+                <form class="navbar-form" action="/fa17g01/search">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">City <span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= cities[j].city %>"><%= cities[j].city %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                            <div class="dropdown btn-group" role="group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                        aria-expanded="false"
+                                        type="button">Zip code<span class="caret"></span></button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
+                                    <li role="presentation"><a
+                                                href="/fa17g01/search?word=<%= zips[i].zip %>"><%= zips[i].zip %></a>
+                                    </li>
+                                    <% }} %>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                               maxlength="40"
+                               name="word">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li role="presentation"><a href="/fa17g01/about/" class="active nav menu" style="color:#ffffff;">About
                             us</a></li>
-                    <li role="presentation"><a href="/fa17g01/agents/" class="active nav menu" style="color:#ffffff;">Inbox </a>
-                    </li>
                     <li role="presentation"><a href="/fa17g01/login/" class="active nav menu" style="color:#ffffff;">Log
                             in</a></li>
                     <li role="presentation"><a href="/fa17g01/registration/" class="active nav menu"
@@ -54,13 +104,13 @@
     <div class="form-container">
         <div class="image-holder"
              style="background-image:url(&quot;/fa17g01/assets/img/bartering-1940x1294-640x427.jpg&quot;);background-size:cover;background-repeat:no-repeat;background-position:top;"></div>
-        <form action="/fa17g01/login/" method="post">
+        <form action="/fa17g01/login/" method="post" id="logIn">
             <h2 class="text-center"><strong>Login</strong> to your account.</h2>
             <div class="form-group">
-                <input class="form-control username-input" type="text" name="username" placeholder="Username">
+                <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
+                <input class="form-control" type="password" name="password" placeholder="Password" required>
             </div>
             <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">Log me in
@@ -100,8 +150,29 @@
         </div>
     </div>
 </footer>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/fa17g01/assets/js/jquery.min.js"></script>
+<script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('#logIn').validate({
+            rules: {
+                username: {
+                    minlength: 4,
+                    required: true
+                },
+                password: {
+                    required: true,
+                    minlength: 4,
+                },
+            }
+        });
+    });
+</script>
+
 </body>
 
 </html>
