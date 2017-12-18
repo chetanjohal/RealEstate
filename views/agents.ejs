@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
-	<link rel="stylesheet" href="/fa17g01/assets/css/News-Cards.css">
-	<meta charset="UTF-8">
-	<title>Pure css popup box</title>
-	<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/fa17g01/assets/css/News-Cards.css">
+    <meta charset="UTF-8">
+    <title>Pure css popup box</title>
+    <link rel='stylesheet prefetch'
+          href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 </head>
 
 <body>
@@ -116,53 +117,93 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="tab-1">
-                       <% for(var i = 0; i < houses.length; i++){%>
-						<% var source = "data:image/png;base64," + houses[i].img; %>
-						<% var hrefHouseId = "/fa17g01/house/" + houses[i].house_id; %>
-						<figure class="snip1527">
-							<div class="image"><a href="<%= hrefHouseId %>"><img src="<%= source %>"/></a></div>
-								<figcaption>
-								<div><form method="post" action="/fa17g01/house/<%=houses[i].house_id%>/delete/">
-											<button type="submit" class="delete"><span>Delete</span></button></form></div>
-									<h4>$<%= houses[i].price %></h4>
-									<p>
-										<%= houses[i].street %>, <%= houses[i].zip %> <%= houses[i].city %>    
-									</p>
-							</figcaption>
-							
-						</figure>
-						<% } %>
+                        <% for(var i = 0; i < houses.length; i++){ %>
+                        <% var source = "data:image/png;base64," + houses[i].img; %>
+                        <% var hrefHouseId = "/fa17g01/house/" + houses[i].house_id; %>
+                        <figure class="snip1527">
+                            <div class="image"><a href="<%= hrefHouseId %>"><img src="<%= source %>"/></a></div>
+                            <figcaption>
+                                <div>
+                                    <form method="post" action="/fa17g01/house/<%= houses[i].house_id %>/delete/">
+                                        <button type="submit" class="delete"><span>Delete</span></button>
+                                    </form>
+                                </div>
+                                <h4>$<%= houses[i].price %></h4>
+                                <p>
+                                    <%= houses[i].street %>, <%= houses[i].zip %> <%= houses[i].city %>
+                                </p>
+                            </figcaption>
+
+                        </figure>
+                        <% } %>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="tab-2">
-                        <p>Please fill in the information for the new house</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Street">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="ZIP code">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Price">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Description">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Bedrooms">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Baths">
+                        <form id="newHouse" method="post" action="/fa17g01/house/new/" enctype="multipart/form-data">
+                            <p>Please fill in the information for the new house</p>
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="street" id="street"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Street">
+                                    <input type="number" name="zip" id="zip" value="94132"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="ZIP code">
+                                    <input type="text" name="city" id="city"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="City">
+                                    <input type="number" name="price" id="price" value="199999"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Price">
+                                    <input type="text" name="description" id="description"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Description">
+                                    <input type="number" name="bedrooms" id="bedrooms" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Bedrooms">
+                                    <input type="number" name="baths" id="baths" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Baths">
+
+                                </div>
+                                <div class="col-md-6">
+
+                                    <input type="number" name="backyard" id="backyard" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Backyard">
+                                    <input type="number" name="pool" id="pool" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Pool">
+                                    <input type="number" name="ac" id="ac" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="AC">
+                                    <input type="number" name="heater" id="heater" value="1"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Heater">
+                                    <input type="number" name="yr" id="yr" value="1996"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Year">
+                                    <input type="number" name="lot" id="lot" value="100"
+                                           style="width:100%;margin-top:9px;margin-bottom:9px;"
+                                           placeholder="Lot">
+                                    <!--
+                                                                    <button class="btn btn-default" type="file" style="margin-top:5px;margin-bottom:20px;">Upload picture</button>
+                                    -->
+                                    <input type="file" name="photo" id="photo"
+                                           accept="image/x-png,image/gif,image/jpeg">Upload
+                                    picture</input>
+                                </div>
+
                             </div>
-                            <div class="col-md-6">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Backyard">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Pool">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="AC">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Publish Date">
-                                <input type="text" style="width:100%;margin-top:9px;margin-bottom:9px;" placeholder="Year">
-                                <button class="btn btn-default" type="button" style="margin-top:5px;margin-bottom:20px;">Upload picture</button>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-default" id="mSubmit" type="submit">Add new house</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button class="btn btn-default" type="button">Add new house</button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <footer style="background-color:#003459;padding-top:55px;margin-top:-22px;padding-left:40px;">
     <div class="container">
         <div class="row">
@@ -184,15 +225,109 @@
             <div class="clearfix visible-sm-block"></div>
             <div class="col-md-4 footer-about">
                 <h4>About the company</h4>
-                <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
+                <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets
+                    together
                     to create a real estate website that provides houses. </p>
-                
+
             </div>
         </div>
     </div>
 </footer>
 <script src="/fa17g01/assets/js/jquery.min.js"></script>
 <script src="/fa17g01/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#newHouse').validate({
+            rules: {
+                description: {
+                    required: true
+                },
+                ac: {
+                    required: true
+                },
+                heater: {
+                    required: true
+                },
+                price: {
+                    required: true
+                },
+                yr: {
+                    required: true
+                },
+                street: {
+                    required: true
+                },
+                city: {
+                    required: true
+                },
+                lot: {
+                    required: true
+                },
+                pool: {
+                    required: true
+                },
+                backyard: {
+                    required: true
+                },
+                baths: {
+                    required: true
+                },
+                bedrooms: {
+                    required: true
+                }
+            }
+        });
+
+
+      /*  $('#newHouse').on('submit', 'form', function (e) {
+            e.preventDefault();
+            //check whether browser fully supports all File API
+            if (window.File && window.FileReader && window.FileList && window.Blob) {
+                //get the file size and file type from file input field
+                var fsize = $('#photo')[0].files[0].size;
+
+                if (fsize > 2726297) //do something if file size more than 2.6 mb
+                {
+                    alert(fsize + " bites\nToo big!");
+                    $('#photo').val(' ');
+
+                }
+                else{
+                    console.log("ok");
+                    $( "#newHouse" ).submit();
+                }
+            } else {
+                alert("Please upgrade your browser, because your current browser lacks some new features we need!");
+
+            }
+        });*/
+    });
+
+    function submit_form() {
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            //get the file size and file type from file input field
+            var fsize = $('#photo')[0].files[0].size;
+
+            if (fsize > 2726297) //do something if file size more than 2.6 mb
+            {
+                alert(fsize + " bites\nToo big!");
+                $('#photo').val(' ');
+                returnToPreviousPage();
+            }
+            else{
+                console.log("ok");
+                $("#newHouse").submit();
+            }
+        } else {
+            alert("Please upgrade your browser, because your current browser lacks some new features we need!");
+            returnToPreviousPage();
+        }
+    }
+
+
+</script>
 </body>
 
 </html>

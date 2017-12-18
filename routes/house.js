@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var fs = require("fs");
+var multer = require("multer");
 
-router.post('/new', function (req, res, next) {
-    var user_id = req.body.user_id;
+
+router.post('/new', multer({dest: './uploads/'}).single('photo'), function (req, res) {
+
+    var agent_id = req.user.user_id
     var street = req.body.street;
-    var agent_id = req.body.agent_id;
     var description = req.body.description;
     var bedrooms = req.body.bedrooms;
     var baths = req.body.baths;
@@ -18,13 +21,33 @@ router.post('/new', function (req, res, next) {
     var city = req.body.city;
     var zip = req.body.zip;
     var lot = req.body.lot;
-    var img = req.body.img;
 
     //Check if user authorized
-    console.log("%s wants to create a house located %s", user_id, street);
-    var sql = "insert into houses (agent_id, description, bedrooms, baths, backyard, pool, ac, heater, yr, price, street, city, zip, lot, img) value (" + agent_id + "," + description + "," + bedrooms + "," + baths + "," + backyard + "," + pool + "," + ac + "," + heater + "," + yr + "," + price + "," + street + "," + city + "," + zip + "," + lot + "," + img + ")";
-    //res.send(sql);
+    console.log("%s wants to create a house located %s", agent_id, street);
+    console.log(req.file);
+    var fileInfo = [];
+    //for(var i = 0; i < req.file.length; i++) {
+    var data;
 
+
+    if (req.file) {
+        const stats = fs.statSync(req.file.path)
+        const fileSizeInBytes = stats.size
+        const fileSizeInMegabytes = fileSizeInBytes / 1000000.0
+        if(fileSizeInMegabytes < 2){
+            data = fs.readFileSync(req.file.path);
+        }
+        else{
+            data = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
+        }
+        fs.unlink(req.file.path);
+    }
+    else {
+        data = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
+    }
+
+    var sql = "INSERT into houses (agent_id, description, bedrooms, baths, backyard, pool, ac, heater, yr, price, street, city, zip, lot, img) value ('" + agent_id + "' , '" + description + "','" + bedrooms + "','" + baths + "','" + backyard + "','" + pool + "','" + ac + "','" + heater + "','" + yr + "','" + price + "','" + street + "','" + city + "','" + zip + "','" + lot + "','" + data.toString('base64') + "')";
+    //var sql = "INSERT into houses (agent_id, street, img) value ('" + agent_id + "' , '" + street + "','" + data.toString('base64') + "')";
     var mysql = require('mysql');
     var connection = mysql.createConnection({
         host: "localhost",
@@ -35,9 +58,9 @@ router.post('/new', function (req, res, next) {
 
     connection.connect(function (err) {
         if (err) throw err;
-        connection.query(sql, function (err, result, fields) {
-            //res.render('results.ejs', {word: word, result: result});
-            res.send(sql);
+        connection.query(sql, function (err, result) {
+            console.log("result: " + result);
+            res.redirect('/fa17g01/agent/');
         });
     });
 });

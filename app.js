@@ -10,6 +10,9 @@ var googleMapsClient = require('@google/maps').createClient({
 var passport = require('passport');
 var session = require('express-session');
 var middleware = require('./routes/middleware');
+var fs = require("fs");
+var multer = require("multer");
+
 
 var app = express();
 
@@ -44,6 +47,12 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
+
+/*app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});*/
 
 // error handler
 app.use(function (err, req, res, next) {
