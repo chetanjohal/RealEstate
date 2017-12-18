@@ -134,7 +134,7 @@
                     <img src="<%= source0 %>" class="img-responsive feature house"/>
                 </a>
                 <h1 class="feature house heading">$ <%= result[0].price %> </h1>
-                <p class="feature paragraph"><%= result[0].street %></p>
+                <p class="feature paragraph"><%= result[0].street %>,<%= result[i].city %>, CA <%= result[i].zip %></p>
             </div>
 
             <% var source1 = "data:image/png;base64," + result[1].img; %>
