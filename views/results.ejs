@@ -38,7 +38,7 @@
 <div>
     <div class="disclaimer" style="background-color:#43c59e;height:24px;">
         <p class="text-center warning" style="margin-bottom:0px;color:rgb(255,255,255);margin-top:0px;padding-top:2px;">
-            CSC 648 section 2 - team 1- SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
+            SFSU Software Engineering Project, Fall 2017. For Demonstration Only</p>
     </div>
     <nav class="navbar navbar-default navigation-clean" style="background-color:#003459;height:73px;">
         <div class="container">
@@ -116,7 +116,7 @@
         </div>
     </nav>
 </div>
-<div style="margin-top:37px;margin-bottom:100px;">
+<div style="margin-bottom:100px;">
     <div class="container">
         <div>
             <h1></br></h1>
@@ -126,41 +126,41 @@
             <h1>Found <%= result.length %> results for <%= word %>:</h1>
             <%}%>
         </div>
-        <div class="row" style="padding-bottom:0;">
-            <div class="col-md-6">
+        <div style="margin-top:37px;margin-bottom:100px;">
+            <div class="container">
                 <% if(result.length != 0){
                 for(var i = 0; i < result.length ; i++){
                 %>
                 <% var source = "data:image/png;base64," + result[i].img; %>
                 <% var hrefHouseId = "/fa17g01/house/" + result[i].house_id; %>
 
-                <div class="row search results">
+                <div class="row search results"> <a target="_blank" href="<%= hrefHouseId %>">
                     <div class="col-md-4" style="margin:auto;padding:auto;height:auto;">
-                        <img src="<%= source %>" class="thumbnail house" style="margin-left:-11px;margin-top:22px;">
+                        <img src="<%= source %>" class="thumbnail house" style="margin-left:61px;margin-top:13px;width:227px;">
                     </div>
-                    <a target="_blank" href="<%= hrefHouseId %>">
+                   
                         <div class="col-md-8 col-md-offset-0">
                             <h1 style="font-size:24px;"> $<%= result[i].price %></h1>
                             <p style="height:110px;font-size:12px;"><%= result[i].street %>
-                                , <%= result[i].zip %> <%= result[i].city %></p>
+                                , <%= result[i].city %>, CA <%= result[i].zip %> <br><%= result[i].description %></p>
+							
                         </div>
                     </a>
                 </div>
                 <% }} %>
             </div>
-            <div class="col-md-6"><img class="img-responsive" src="assets/img/O2EOCxf.png"
-                                       style="width:595px;height:378px;margin-left:-10px;"></div>
+            
         </div>
     </div>
 </div>
 <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
     <div class="container">
-        <div class="row" style="margin-right:14px;">
+        <div class="row">
             <div class="col-md-4 col-sm-6 footer-navigation">
-                <h3><a href="#">Unlock</a></h3>
+                <h3><a href="/fa17g01/">Unlock</a></h3>
                 <p class="links"><a href="/fa17g01/">Home</a><strong> · </strong><a
                             href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
-                            href="registration.html"> Sign up</a><strong> </strong></p>
+                            href="/fa17g01/registration/"> Sign-Up</a><strong> </strong></p>
                 <p class="company-name">Unlock © 2017 </p>
             </div>
             <div class="col-md-4 col-sm-6 footer-contacts">
@@ -175,10 +175,8 @@
             <div class="col-md-4 footer-about">
                 <h4>About the company</h4>
                 <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
-                    to creatte a real estate website that provides houses. </p>
-                <div class="social-links social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
-                                class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i
-                                class="fa fa-github"></i></a></div>
+                    to create a real estate website that provides houses. </p>
+                
             </div>
         </div>
     </div>

@@ -100,7 +100,7 @@
                 <h3 style="font-size:22px;font-family:Rubik, sans-serif;color:#ffffff;font-weight:bold;text-shadow: 2px 2px 4px #000000;;margin-top:-15px;">or browse house by </h3>
                 <div class="input-btn-group" role="group">
                     <div class="dropdown btn-group" role="group">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">City <span class="caret"></span></button>
+                        <button class="btn btn-primary" style="border-radius:5px"data-toggle="dropdown" aria-expanded="false" type="button">City <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
                              <% if (cities) { for(var j = 0; j < cities.length; j++){ %>
                             <li role="presentation">
@@ -110,7 +110,7 @@
                         </ul>
                     </div>
                     <div class="dropdown btn-group" role="group">
-                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">Zipcode <span class="caret"></span></button>
+                        <button class="btn btn-primary" style="border-radius:5px" data-toggle="dropdown" aria-expanded="false" type="button">Zipcode <span class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
                             <% if (zips) { for(var i = 0; i < zips.length; i++){ %>
                             <li role="presentation"><a
@@ -134,7 +134,7 @@
                     <img src="<%= source0 %>" class="img-responsive feature house"/>
                 </a>
                 <h1 class="feature house heading">$ <%= result[0].price %> </h1>
-                <p class="feature paragraph"><%= result[0].street %></p>
+                <p class="feature paragraph"><%= result[0].street %>,<%= result[0].city %>, <br>CA <%= result[0].zip %></p>
             </div>
 
             <% var source1 = "data:image/png;base64," + result[1].img; %>
@@ -144,7 +144,7 @@
                     <img src="<%= source1 %>" class="img-responsive feature house"/>
                 </a>
                 <h1 class="feature house heading">$<%= result[1].price %> </h1>
-                <p class="feature paragraph"><%= result[1].street %></p>
+                <p class="feature paragraph"><%= result[1].street %>,<%= result[1].city %>, <br>CA <%= result[1].zip %></p>
             </div>
 
             <% var source2 = "data:image/png;base64," + result[2].img; %>
@@ -154,7 +154,7 @@
                     <img src="<%= source2 %>" class="img-responsive feature house"/>
                 </a>
                 <h1 class="feature house heading">$<%= result[2].price %> </h1>
-                <p class="feature paragraph"><%= result[2].street %></p>
+                <p class="feature paragraph"><%= result[2].street %>,<%= result[2].city %>, <br>CA <%= result[2].zip %></p>
             </div>
         </div>
         <div></div>
@@ -165,7 +165,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-6 footer-navigation">
                 <h3><a href="/fa17g01/">Unlock</a></h3>
-                <p class="links"><a href="home.html">Home</a><strong> · </strong><a
+                <p class="links"><a href="/fa17g01/">Home</a><strong> · </strong><a
                             href="https://sfsuse.com/fa17g01/about/">About</a><strong> · </strong><a
                             href="/fa17g01/registration/"> Sign-Up</a><strong> </strong></p>
                 <p class="company-name">Unlock © 2017 </p>
