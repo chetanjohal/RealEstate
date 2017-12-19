@@ -77,7 +77,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                        <input class="form-control search bar" type="text" placeholder="Enter City or ZIP code"
                                maxlength="40"
                                name="word">
                         <div class="input-group-btn">
@@ -141,8 +141,7 @@
                    
                         <div class="col-md-8 col-md-offset-0">
                             <h1 style="font-size:24px;"> $<%= result[i].price %></h1>
-                            <p style="height:110px;font-size:12px;"><%= result[i].street %>
-                                , <%= result[i].city %>, CA <%= result[i].zip %> <br><%= result[i].description %></p>
+                            <p style="height:110px;font-size:12px;"><%= result[i].street %>, <%= result[i].city %>, CA <%= result[i].zip %> <br><br><%= result[i].description %></p>
 							
                         </div>
                     </a>
