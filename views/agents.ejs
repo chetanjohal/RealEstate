@@ -69,7 +69,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <input class="form-control search bar" type="text" placeholder=" Enter City or ZIP code"
+                        <input class="form-control search bar" type="text" placeholder="Enter City or ZIP code"
                                maxlength="40"
                                name="word">
                         <div class="input-group-btn">
@@ -112,12 +112,14 @@
     <div>
         <div class="container inbox">
             <div>
+				<div><h2 style="font-family:Cookie, cursive;font-size:43px;">Agent Dashboard</h2></div>
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-1" role="tab" data-toggle="tab">House Listing</a></li>
-                    <li><a href="#tab-2" role="tab" data-toggle="tab">Add new house</a></li>
+                    <li class="active"><a href="#tab-1" role="tab" data-toggle="tab" style="font-family:Rubik, sans-serif;">House Listing</a></li>
+                    <li><a href="#tab-2" role="tab" data-toggle="tab" style="font-family:Rubik, sans-serif;">Add new house</a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="tab-1">
+						<div><h3 style="font-family:Rubik, sans-serif;">My House Listing</h3></div>
                         <% for(var i = 0; i < houses.length; i++){ %>
                         <% var source = "data:image/png;base64," + houses[i].img; %>
                         <% var hrefHouseId = "/fa17g01/house/" + houses[i].house_id; %>
@@ -140,6 +142,7 @@
                     </div>
                     <div class="tab-pane" role="tabpanel" id="tab-2">
                         <form id="newHouse" method="post" action="/fa17g01/house/new/" class="dropzone" enctype="multipart/form-data">
+							<div><h3 style="font-family:Rubik, sans-serif;">Adding new house</h3></div>
                             <p style="font-weight:bold;">Please fill in the information for the new house</p>
                             <div class="row">
 
@@ -211,7 +214,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-default" id="mSubmit" type="submit">Add new house</button>
+                                    <button class="btn btn-default" id="mSubmit" type="submit">Add this house to my listing</button>
                                 </div>
                             </div>
                         </form>
