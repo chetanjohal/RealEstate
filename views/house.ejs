@@ -18,6 +18,18 @@
 
         gtag('config', 'UA-111266925-1');
     </script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="/fa17g01/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/fa17g01/assets/fonts/font-awesome.min.css">
@@ -32,6 +44,9 @@
     <link rel="stylesheet" href="/fa17g01/assets/css/Pretty-Search-Form.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
+    <script src="/fa17g01/assets/js/jquery.min.js"></script>
+
+
 </head>
 
 <body>
@@ -101,7 +116,7 @@
                             Hi <%= user.username %>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/fa17g01/logout/<%=pageId%>/">Logout</a>
+                            <a class="dropdown-item" href="/fa17g01/logout/<%= pageId %>/">Logout</a>
                         </div>
                     </li>
                     <% } else { %>
@@ -145,146 +160,204 @@
             </div>
             <% var source = "data:image/png;base64," + result[0].img; %>
             <div class="container col-md-6 ">
-                <div class="row"><img src="<%= source %>"
-                                      style="background-size:cover;width:457px;background-position:0% 35%;">
-                </div>
                 <div class="row">
-                    <iframe
-                            frameborder="0"
-                            width="100%" height="100%"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
-                            class="map-screen"
-                            style="margin-top:20px;width:457px; height: 200px;"
-                            allowfullscreen>
-                    </iframe>
-                </div>
-				<div>
-					 <form method="post" style="background-color:#ffffff;width:457px;margin-left:-15px">
-						<div class="form-group">
-							<textarea class="form-control" rows="14" name="message" placeholder="Message" style="height:150px;width:457px;" >Hello! I really like this house, please give me further information about this house please</textarea>
-						</div>
-						<% if ( user.username ) { %>
-						<div class="form-group" style="color: #fff;"><a id="contactButton" class="btn btn-primary" role="button"
-                                   style="width:462px;" data-toggle="modal" data-target="#sentModal">Send Message </a>
-						</div>
+                    <% if(!images) { %>
+                    <img src="<%= source %>"
+                         style="background-size:cover;width:457px;background-position:0% 35%;">
+                    <% }else{ %>
 
-						<% } else{ %>
-						<div class="form-group" >
-							<a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal" data-target="#loginModal">Log In </a>
-							<a id="signup" class="btn btn-primary" role="button" data-toggle="modal" data-target="#signinModal">Sign Up </a>
-						</div>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel"
+                         style="background-size:cover;width:457px; height:250px; background-position:0% 35%;">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <% if(images) { %>
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <% if(images.length > 1){for(var j = 1; j < images.length; j++){ %>
+                            <li data-target="#myCarousel" data-slide-to="<%= j %>"></li>
+                            <% }}} %>
+                        </ol>
 
-						<% } %>
-					</form>
-				</div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/fa17g01/login/<%=pageId%>/" method="post" id="logIn">
-                    <h2 class="text-center"><strong>Login</strong> to your account.</h2>
-                    <div class="form-group">
-                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">Log me in
-                        </button>
-                    </div>
-                    <a href="#" class="already">Forgot your password?click here.</a>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="/fa17g01/registration/<%=pageId%>/" method="post" id="signIn">
-                    <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                    <div class="form-group">
-                        <input class="form-control username-input" type="text" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control email-input" type="email" name="email" id="email" placeholder="Email"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="password" id="password" placeholder="Password"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="password2" id="password2"
-                               placeholder="Password (repeat)"
-                               required>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios1" value="0" checked>
-                            Buyer
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios2" value="1">
-                            Seller
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <div class="checkbox">
-                            <label class="control-label">
-                                <input type="checkbox" id="agree">I agree to the license terms.</label>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            <% if(images) { %>
+                            <% var source = "data:image/png;base64," + images[0].image; %>
+                            <div class="item active">
+                                <img src="<%= source %>" alt="Los Angeles">
+                            </div>
+                            <% if(images.length > 1){for(var j = 1; j < images.length; j++){ %>
+                            <% var source = "data:image/png;base64," + images[j].image; %>
+                            <div class="item">
+                                <img src="<%= source %>" alt="House image">
+                            </div>
+                            <% }}} %>
                         </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-block" id="signUp" type="submit" style="background-color:#3cad8b;"
-                                disabled>Sign Up
-                        </button>
+                    <% } %>
+
+                    <div class="row">
+                        <iframe
+                                frameborder="0"
+                                width="100%" height="100%"
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
+                                class="map-screen"
+                                style="margin-top:20px;width:457px; height: 200px;"
+                                allowfullscreen>
+                        </iframe>
                     </div>
-                    <a href="/fa17g01/login" class="already">You already have an account? Login here.</a>
-                </form>
+                    <div>
+                        <form method="post" style="background-color:#ffffff;width:457px;margin-left:-15px">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="14" name="message" placeholder="Message"
+                                          style="height:150px;width:457px;">Hello! I really like this house, please give me further information about this house please</textarea>
+                            </div>
+                            <% if ( user.username ) { %>
+                            <div class="form-group" style="color: #fff;"><a id="contactButton" class="btn btn-primary"
+                                                                            role="button"
+                                                                            style="width:462px;" data-toggle="modal"
+                                                                            data-target="#sentModal">Send Message </a>
+                            </div>
+
+                            <% } else{ %>
+                            <div class="form-group">
+                                <a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal"
+                                   data-target="#loginModal">Log In </a>
+                                <a id="signup" class="btn btn-primary" role="button" data-toggle="modal"
+                                   data-target="#signinModal">Sign Up </a>
+                            </div>
+
+                            <% } %>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="sentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Message sent !</h2>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <h4>Your message has been sent!</br></br>The agent in charge of this house will contact you soon on your email address.</br></br>Thank you.</h4>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/fa17g01/login/<%= pageId %>/" method="post" id="logIn">
+                        <h2 class="text-center"><strong>Login</strong> to your account.</h2>
+                        <div class="form-group">
+                            <input class="form-control username-input" type="text" name="username"
+                                   placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit" style="background-color:#3cad8b;">
+                                Log me in
+                            </button>
+                        </div>
+                        <a href="#" class="already">Forgot your password?click here.</a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/fa17g01/registration/<%= pageId %>/" method="post" id="signIn">
+                        <h2 class="text-center"><strong>Create</strong> an account.</h2>
+                        <div class="form-group">
+                            <input class="form-control username-input" type="text" name="username"
+                                   placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control email-input" type="email" name="email" id="email"
+                                   placeholder="Email"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password" id="password"
+                                   placeholder="Password"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" name="password2" id="password2"
+                                   placeholder="Password (repeat)"
+                                   required>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios1"
+                                       value="0" checked>
+                                Buyer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" name="is_agent" id="exampleRadios2"
+                                       value="1">
+                                Seller
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label class="control-label">
+                                    <input type="checkbox" id="agree">I agree to the license terms.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" id="signUp" type="submit"
+                                    style="background-color:#3cad8b;"
+                                    disabled>Sign Up
+                            </button>
+                        </div>
+                        <a href="/fa17g01/login" class="already">You already have an account? Login here.</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="sentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Message sent !</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Your message has been sent!</br></br>The agent in charge of this house will contact you soon on
+                        your email address.</br></br>Thank you.</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
     <div class="container">
@@ -309,7 +382,7 @@
                 <h4>About the company</h4>
                 <p style="color:rgb(255,255,255);"> Six students from San Francisco State University that gets together
                     to create a real estate website that provides houses. </p>
-                
+
             </div>
         </div>
     </div>

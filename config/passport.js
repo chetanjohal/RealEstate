@@ -1,7 +1,8 @@
 var LocalStrategy = require("passport-local").Strategy;
 var mysql = require('mysql');
 var q = require('q');
-
+// Load the bcrypt module
+var bcrypt = require('bcrypt-nodejs');
 var deferred = q.defer(); // Use Q
 
 var connection = mysql.createConnection({
@@ -59,11 +60,13 @@ module.exports = function (passport) {
                     let email = req.body.email;
                     let isAgent = req.body.is_agent;
                     newUserMysql.username = username;
-                    newUserMysql.password = password; // use the generateHash function in our user model
+                    var hash = bcrypt.hashSync(password);
+                    console.log("hash: "+hash);
+                    newUserMysql.password = hash; // use the generateHash function in our user model
                     newUserMysql.email = email;
                     console.log("isAgent: " +  isAgent);
 
-                    var insertQuery = "INSERT INTO `users` (username, password, email, is_agent) values ('" + username + "','" + password + "','" +  email + "','" +  isAgent + "')";
+                    var insertQuery = "INSERT INTO `users` (username, password, email, is_agent) values ('" + username + "','" + hash + "','" +  email + "','" +  isAgent + "')";
                     insertClient(insertQuery)
                         .then(() => {
                             connection.query("SELECT * FROM `users` WHERE `username` = '" + newUserMysql.username + "'", function (err, rows) {
@@ -109,16 +112,17 @@ module.exports = function (passport) {
                 if (err)
                     return done(err);
                 if (!rows.length) {
-                    console.log('loginMessage', 'No user found.')
+                    console.log('loginMessage', 'No user found.');
                     return done(null, false, {message: 'Incorrect username.'}); // req.flash is the way to set flashdata using connect-flash
                 }
                 // if the user is found but the password is wrong
-                if (!(rows[0].password == password)) {
-                    console.log('loginMessage', 'Oops! Wrong password.')
+
+                if (!bcrypt.compareSync(password, rows[0].password)) {
+                    console.log('loginMessage', 'Oops! Wrong password.');
                     return done(null, false, {message: 'Incorrect password.'}); // create the loginMessage and save it to session as flashdata
                 }
                 // all is well, return successful user
-                console.log('loginMessage', 'Successful')
+                console.log('loginMessage', 'Successful');
                 return done(null, rows[0]);
             });
         }

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/fa17g01/assets/css/Registration-Form-with-Photo.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/styles.css">
     <link rel="stylesheet" href="/fa17g01/assets/css/News-Cards.css">
+    <script src="/fa17g01/assets/js/dropzone.js"></script>
     <meta charset="UTF-8">
     <title>Pure css popup box</title>
     <link rel='stylesheet prefetch'
@@ -138,7 +139,7 @@
                         <% } %>
                     </div>
                     <div class="tab-pane" role="tabpanel" id="tab-2">
-                        <form id="newHouse" method="post" action="/fa17g01/house/new/" enctype="multipart/form-data">
+                        <form id="newHouse" method="post" action="/fa17g01/house/new/" class="dropzone" enctype="multipart/form-data">
                             <p>Please fill in the information for the new house</p>
                             <div class="row">
 
@@ -187,7 +188,7 @@
                                                                     <button class="btn btn-default" type="file" style="margin-top:5px;margin-bottom:20px;">Upload picture</button>
                                     -->
                                     <input type="file" name="photo" id="photo"
-                                           accept="image/x-png,image/gif,image/jpeg">Upload
+                                           accept="image/x-png,image/gif,image/jpeg" multiple>Upload
                                     picture</input>
                                 </div>
 

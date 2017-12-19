@@ -3,8 +3,9 @@ var router = express.Router();
 var fs = require("fs");
 var multer = require("multer");
 
+//app.post("/upload", multer({dest: "./uploads/"}).array("uploads", 12), function(req, res) {
 
-router.post('/new', multer({dest: './uploads/'}).single('photo'), function (req, res) {
+router.post('/new', multer({dest: './uploads/'}).array('photo', 12), function (req, res) {
 
     var agent_id = req.user.user_id
     var street = req.body.street;
@@ -24,29 +25,32 @@ router.post('/new', multer({dest: './uploads/'}).single('photo'), function (req,
 
     //Check if user authorized
     console.log("%s wants to create a house located %s", agent_id, street);
-    console.log(req.file);
+    console.log(req.files);
     var fileInfo = [];
     //for(var i = 0; i < req.file.length; i++) {
-    var data;
+    var data = [12];
 
 
-    if (req.file) {
-        const stats = fs.statSync(req.file.path)
-        const fileSizeInBytes = stats.size
-        const fileSizeInMegabytes = fileSizeInBytes / 1000000.0
-        if(fileSizeInMegabytes < 2){
-            data = fs.readFileSync(req.file.path);
+    if (req.files) {
+        console.log("length: " + req.files.length);
+        for (var i = 0; i < req.files.length; i++) { //req.files[i]
+            const stats = fs.statSync(req.files[i].path);
+            const fileSizeInBytes = stats.size;
+            const fileSizeInMegabytes = fileSizeInBytes / 1000000.0;
+            if (fileSizeInMegabytes < 2) {
+                data[i] = fs.readFileSync(req.files[i].path);
+            }
+            else {
+                data[i] = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
+            }
+            fs.unlink(req.files[i].path);
         }
-        else{
-            data = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
-        }
-        fs.unlink(req.file.path);
     }
     else {
-        data = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
+        data[0] = "iVBORw0KGgoAAAANSUhEUgAAAeAAAAHgAgMAAAAAulYGAAAADFBMVEX///8AAADc2c////83BRtzAAAA8klEQVR4nO3NMREAIAwEsDrAB8o51OEAJjT80MRAaodUv3hVxOwYjxtwxGKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWKxWCwWi8VisVgsFovFYrFYLBaLxWLxjyuiY7xD+sUPl1d9uWzK18sAAAAASUVORK5CYII=";
     }
 
-    var sql = "INSERT into houses (agent_id, description, bedrooms, baths, backyard, pool, ac, heater, yr, price, street, city, zip, lot, img) value ('" + agent_id + "' , '" + description + "','" + bedrooms + "','" + baths + "','" + backyard + "','" + pool + "','" + ac + "','" + heater + "','" + yr + "','" + price + "','" + street + "','" + city + "','" + zip + "','" + lot + "','" + data.toString('base64') + "')";
+    var sql = "INSERT into houses (agent_id, description, bedrooms, baths, backyard, pool, ac, heater, yr, price, street, city, zip, lot, img) value ('" + agent_id + "' , '" + description + "','" + bedrooms + "','" + baths + "','" + backyard + "','" + pool + "','" + ac + "','" + heater + "','" + yr + "','" + price + "','" + street + "','" + city + "','" + zip + "','" + lot + "','" + data[0].toString('base64') + "')";
     //var sql = "INSERT into houses (agent_id, street, img) value ('" + agent_id + "' , '" + street + "','" + data.toString('base64') + "')";
     var mysql = require('mysql');
     var connection = mysql.createConnection({
@@ -59,8 +63,15 @@ router.post('/new', multer({dest: './uploads/'}).single('photo'), function (req,
     connection.connect(function (err) {
         if (err) throw err;
         connection.query(sql, function (err, result) {
-            console.log("result: " + result);
-            res.redirect('/fa17g01/agent/');
+            var sqlImages = "INSERT INTO images (house_id, image) VALUES";
+
+            for (var j = 0; j < data.length; j++) { //req.files[i]
+                sqlImages += " ('" + result.insertId + "' , '" + data[j].toString('base64') + "'),";
+            }
+            connection.query(sqlImages.substring(0, sqlImages.length - 1), function (err, result2) {
+                console.log("result2 :" + result2);
+                res.redirect('/fa17g01/agent/');
+            });
         });
     });
 });
@@ -90,11 +101,36 @@ router.get('/:house_id', function (req, res, next) {
         var sql = "SELECT * FROM houses WHERE house_id=" + house_id;
         var sqlZip = "SELECT DISTINCT zip from houses";
         var sqlCity = "SELECT DISTINCT city from houses";
+        var sqlImages = "SELECT * FROM images WHERE house_id=" + house_id;
         connection.query(sqlCity, function (err, cities) {
             connection.query(sqlZip, function (err, zips) {
-                connection.query(sql, function (err, result, fields) {
-                    res.render('house.ejs', {result: result, user, cities, zips, pageId: house_id});
-                    //res.send(result);
+                connection.query(sql, function (err, result) {
+                    connection.query(sqlImages, function (err, images) {
+
+                        if ( images.length > 0) {
+                            console.log("Several picture")
+                            res.render('house.ejs', {
+                                result: result,
+                                user,
+                                cities,
+                                zips,
+                                pageId: house_id,
+                                images: images
+                            });
+                        }
+                        else {
+                            console.log("only one picture")
+                            res.render('house.ejs', {
+                                result: result,
+                                user,
+                                cities,
+                                zips,
+                                pageId: house_id,
+                                images: 0
+                            });
+
+                        }
+                    });
                 });
             });
         })
