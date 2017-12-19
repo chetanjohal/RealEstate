@@ -92,7 +92,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <input class="form-control search bar" type="text" placeholder="City, zip, street"
+                        <input class="form-control search bar" type="text" placeholder="Enter City or ZIP code
                                maxlength="40"
                                name="word">
                         <div class="input-group-btn">
@@ -203,19 +203,8 @@
                         </a>
                     </div>
                     <% } %>
-
-                    <div class="row">
-                        <iframe
-                                frameborder="0"
-                                width="100%" height="100%"
-                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
-                                class="map-screen"
-                                style="margin-top:20px;width:457px; height: 200px;"
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div>
-                        <form method="post" style="background-color:#ffffff;width:457px;margin-left:-15px">
+					<div>
+                        <form method="post" style="background-color:#ffffff;width:457px;">
                             <div class="form-group">
                                 <textarea class="form-control" rows="14" name="message" placeholder="Message"
                                           style="height:150px;width:457px;">Hello! I really like this house, please give me further information about this house please</textarea>
@@ -229,15 +218,28 @@
 
                             <% } else{ %>
                             <div class="form-group">
-                                <a id="loginButton" class="btn btn-primary" role="button" data-toggle="modal"
-                                   data-target="#loginModal">Log In </a>
-                                <a id="signup" class="btn btn-primary" role="button" data-toggle="modal"
-                                   data-target="#signinModal">Sign Up </a>
+                                <a id="loginButton" style="margin-right:7px;" class="btn btn-primary" role="button" data-toggle="modal"
+                                   data-target="#loginModal">Please Log in to Send Message  </a>
+								   <p style="margin-top:7px;"> Or </p>
+                                <a id="signup" style="margin-left:7px;"class="btn btn-primary" role="button" data-toggle="modal"
+                                   data-target="#signinModal"> Create My Account </a>
                             </div>
 
                             <% } %>
                         </form>
                     </div>
+                    <div class="row">
+                        <iframe
+                                frameborder="0"
+                                width="100%" height="100%"
+								
+                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBPbfCf7NlfuG9RFTdme-KvLJr-6YR242Q&q=<%= result[0].city %>,<%= result[0].street %>"
+                                class="map-screen"
+                                style="margin-left:15px;width:457px; height: 200px;"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -359,7 +361,7 @@
         </div>
     </div>
 </body>
-<footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85;padding-left:40px;margin-bottom:0px;">
+<footer style="background-color:#011d32;padding-top:73px;margin:0;margin-top:85px;padding-left:40px;margin-bottom:0px;">
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-6 footer-navigation">

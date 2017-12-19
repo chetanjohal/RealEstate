@@ -106,7 +106,16 @@
   display:flex;
   justify-content:center;
 }
-
-.btn.btn-default {
+.dashboardlabel {
+display: inline-block;
+max-width: 100%;
+margin-top:15px;
+margin-bottom:15px;
+margin-right:10px
+font-weight: 700;
 }
-
+.dashboardtextfield{
+float: right;
+width:80%;
+margin-top:9px;
+}

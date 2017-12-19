@@ -119,9 +119,9 @@
 <div style="margin-bottom:100px;">
     <div class="container">
         <div>
-            <h1></br></h1>
+        
             <%if (noResult) { %>
-            <h1>No result found for <%= word %>, but have a look at those houses:</h1>
+            <h1 style="margin-top:30px;">No result found <%= word %>, however we have these house to choose from:</h1>
             <%} else {%>
             <h1>Found <%= result.length %> results for <%= word %>:</h1>
             <%}%>
